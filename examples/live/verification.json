@@ -1,0 +1,67 @@
+{
+  "scope": "single_live_run_per_final_case_not_statistical_reliability",
+  "cases": [
+    {
+      "case": "normal",
+      "status": "completed",
+      "tool_calls_used": 3,
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "verified": true,
+      "duration_seconds": 1.5
+    },
+    {
+      "case": "missing_info",
+      "status": "needs_input",
+      "tool_calls_used": 0,
+      "actions": [
+        "finish"
+      ],
+      "verified": true
+    },
+    {
+      "case": "no_material",
+      "status": "insufficient_material",
+      "tool_calls_used": 1,
+      "actions": [
+        "search_materials",
+        "finish"
+      ],
+      "verified": true
+    },
+    {
+      "case": "tool_failure",
+      "status": "tool_error",
+      "tool_calls_used": 1,
+      "actions": [
+        "search_materials",
+        "finish"
+      ],
+      "verified": true
+    },
+    {
+      "case": "duration_revision",
+      "status": "completed",
+      "tool_calls_used": 5,
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "finish",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "verified": true,
+      "duration_seconds": 1.5,
+      "duration_change_seconds": [
+        4.5,
+        1.5
+      ]
+    }
+  ]
+}

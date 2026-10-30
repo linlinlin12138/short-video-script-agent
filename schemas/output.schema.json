@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScriptAgentOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "message", "missing_fields", "questions", "script", "checks", "risks", "tool_calls_used"],
+  "properties": {
+    "status": {"enum": ["completed", "needs_input", "insufficient_material", "tool_error", "constraints_unsatisfied", "step_limit_reached"]},
+    "message": {"type": "string", "minLength": 1},
+    "missing_fields": {"type": "array", "uniqueItems": true, "items": {"enum": ["topic", "audience", "platform", "target_duration_seconds", "style"]}},
+    "questions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "script": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/script"}]},
+    "checks": {"$ref": "#/$defs/checks"},
+    "risks": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "tool_calls_used": {"type": "integer", "minimum": 0, "maximum": 10}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "completed"}}},
+      "then": {
+        "properties": {
+          "script": {"$ref": "#/$defs/script"},
+          "missing_fields": {"maxItems": 0},
+          "questions": {"maxItems": 0},
+          "checks": {"properties": {"script_version": {"type": "integer", "minimum": 1}, "duration": {"const": "passed"}, "facts": {"const": "passed"}, "brand": {"const": "passed"}, "issues": {"maxItems": 0}}}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "needs_input"}}},
+      "then": {"properties": {"questions": {"minItems": 1}}}
+    }
+  ],
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "source_id", "fact_id"],
+      "properties": {
+        "text": {"type": "string", "minLength": 1},
+        "source_id": {"type": "string", "minLength": 1},
+        "fact_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "visual", "voiceover", "subtitle", "estimated_duration_seconds", "claims"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "visual": {"type": "string", "minLength": 1},
+        "voiceover": {"type": "string"},
+        "subtitle": {"type": "string"},
+        "estimated_duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}}
+      },
+      "anyOf": [
+        {"properties": {"voiceover": {"pattern": "\\S"}}},
+        {"properties": {"subtitle": {"pattern": "\\S"}}}
+      ]
+    },
+    "script": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "title", "scenes", "estimated_total_duration_seconds"],
+      "properties": {
+        "version": {"type": "integer", "minimum": 1},
+        "title": {"type": "string", "minLength": 1},
+        "scenes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/scene"}},
+        "estimated_total_duration_seconds": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["script_version", "duration", "facts", "brand", "issues"],
+      "properties": {
+        "script_version": {"type": ["integer", "null"], "minimum": 1},
+        "duration": {"$ref": "#/$defs/check_status"},
+        "facts": {"$ref": "#/$defs/check_status"},
+        "brand": {"$ref": "#/$defs/check_status"},
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["rule_id", "location", "text", "reason"],
+            "properties": {
+              "rule_id": {"type": "string", "minLength": 1},
+              "location": {"type": "string", "minLength": 1},
+              "text": {"type": "string"},
+              "reason": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "check_status": {"enum": ["not_run", "passed", "failed", "error"]}
+  }
+}

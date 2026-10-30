@@ -1,0 +1,20 @@
+{
+  "status": "needs_input",
+  "message": "已检索到可用素材，但目前只有一条事实“支持字幕”，不足以完成合规脚本。",
+  "missing_fields": [],
+  "questions": [
+    "请补充更多与字幕功能相关的素材事实或产品资料，至少包含可用于画面、旁白和字幕的具体事实。"
+  ],
+  "script": null,
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。"
+  ],
+  "tool_calls_used": 1
+}

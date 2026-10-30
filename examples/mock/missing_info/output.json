@@ -1,0 +1,23 @@
+{
+  "status": "needs_input",
+  "message": "请补充关键信息",
+  "missing_fields": [
+    "target_duration_seconds"
+  ],
+  "questions": [
+    "请提供 target_duration_seconds"
+  ],
+  "script": null,
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。",
+    "离线 Mock 仅验证流程，不证明真实模型决策效果。"
+  ],
+  "tool_calls_used": 0
+}

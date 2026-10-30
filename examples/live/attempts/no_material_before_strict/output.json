@@ -1,0 +1,21 @@
+{
+  "status": "needs_input",
+  "message": "当前没有检索到可用产品素材，无法在不编造事实的前提下撰写视频降噪功能脚本。",
+  "missing_fields": [],
+  "questions": [
+    "请补充产品素材或说明书，至少包含可引用的 source_id 和 fact_id。",
+    "请提供与“视频降噪功能”相关的具体事实，例如功能描述、使用场景或限制。"
+  ],
+  "script": null,
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。"
+  ],
+  "tool_calls_used": 1
+}

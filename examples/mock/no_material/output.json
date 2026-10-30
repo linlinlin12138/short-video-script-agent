@@ -1,0 +1,19 @@
+{
+  "status": "insufficient_material",
+  "message": "未找到支持主题的产品资料",
+  "missing_fields": [],
+  "questions": [],
+  "script": null,
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。",
+    "离线 Mock 仅验证流程，不证明真实模型决策效果。"
+  ],
+  "tool_calls_used": 2
+}

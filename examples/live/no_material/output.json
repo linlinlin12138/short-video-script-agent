@@ -1,0 +1,20 @@
+{
+  "status": "insufficient_material",
+  "message": "目前没有检索到可用于“视频降噪功能”脚本的本地素材事实。",
+  "missing_fields": [],
+  "questions": [
+    "请提供与该产品视频降噪功能相关的素材事实，或上传可检索的产品资料。"
+  ],
+  "script": null,
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。"
+  ],
+  "tool_calls_used": 1
+}

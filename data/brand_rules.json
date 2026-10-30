@@ -1,0 +1,45 @@
+{
+  "rules_version": "1.0",
+  "synthetic": true,
+  "rules": [
+    {
+      "id": "BR01",
+      "category": "factuality",
+      "severity": "error",
+      "instruction": "所有产品事实必须被引用素材中的具体事实支持，标题、画面、旁白及字幕均在检查范围内。"
+    },
+    {
+      "id": "BR02",
+      "category": "unsupported_metrics",
+      "severity": "error",
+      "instruction": "没有素材支持时，禁止添加数字效果、效率提升、识别准确率、处理速度和比较性结论。",
+      "violation_examples": ["效率提升 80%", "识别准确率 99%", "比其他产品更快"]
+    },
+    {
+      "id": "BR03",
+      "category": "unsupported_capabilities",
+      "severity": "error",
+      "instruction": "不得将支持字幕扩写为自动识别、自动生成、多语言、翻译或具体操作流程。",
+      "violation_examples": ["自动生成字幕", "一键翻译多语言字幕", "上传视频后自动识别语音"]
+    },
+    {
+      "id": "BR04",
+      "category": "absolute_claims",
+      "severity": "error",
+      "instruction": "禁止绝对化或保证性宣传用语。",
+      "violation_examples": ["全网第一", "百分百准确", "保证涨粉", "永久免费"]
+    },
+    {
+      "id": "BR05",
+      "category": "reference_integrity",
+      "severity": "error",
+      "instruction": "每条产品事实声明须引用存在的 source_id 和该素材内存在的 fact_id；不得虚构引用。"
+    }
+  ],
+  "controlled_language": {
+    "neutral_segments": ["字幕功能介绍", "产品介绍", "字幕功能", "产品画面", "字幕示意画面", "展示文字卡片", "了解字幕功能", "接下来看看字幕功能"],
+    "policy": "事实仅接受素材原文；中性表达按完整句段匹配。未知句段保守拒绝，不将无关键词命中视为事实通过。"
+  },
+  "checker_output_requirements": ["rule_id", "location", "text", "reason"],
+  "limitations": ["示例违规短语不构成完整词表，词语未命中不代表语义已通过事实核验。"]
+}

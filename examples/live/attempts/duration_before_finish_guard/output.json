@@ -1,0 +1,73 @@
+{
+  "status": "constraints_unsatisfied",
+  "message": "当前三分镜草稿预计 4.5 秒，超过 3 秒目标，需要压缩为更短版本后再检查。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 1,
+    "title": "字幕功能介绍",
+    "scenes": [
+      {
+        "id": "scene1",
+        "visual": "产品介绍",
+        "voiceover": "支持字幕",
+        "subtitle": "支持字幕",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 1.5
+      },
+      {
+        "id": "scene2",
+        "visual": "字幕功能",
+        "voiceover": "支持字幕",
+        "subtitle": "支持字幕",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 1.5
+      },
+      {
+        "id": "scene3",
+        "visual": "字幕示意画面",
+        "voiceover": "支持字幕",
+        "subtitle": "支持字幕",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 1.5
+      }
+    ],
+    "estimated_total_duration_seconds": 4.5
+  },
+  "checks": {
+    "script_version": 1,
+    "duration": "failed",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": [
+      {
+        "rule_id": "DURATION",
+        "location": "script",
+        "text": "4.5",
+        "reason": "超过目标时长"
+      }
+    ]
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。"
+  ],
+  "tool_calls_used": 2
+}

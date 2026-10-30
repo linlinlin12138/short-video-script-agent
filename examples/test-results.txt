@@ -1,0 +1,37 @@
+test_duration_repair (test_agent.AgentTests) ... ok
+test_failed_recheck_does_not_reuse_pass (test_agent.AgentTests) ... ok
+test_http_adapter_protocol_without_network (test_agent.AgentTests) ... ok
+test_limits (test_agent.AgentTests) ... ok
+test_missing_input_and_no_material (test_agent.AgentTests) ... ok
+test_model_failure (test_agent.AgentTests) ... ok
+test_new_version_invalidates_old_checks (test_agent.AgentTests) ... ok
+test_no_search_cannot_complete (test_agent.AgentTests) ... ok
+test_normal (test_agent.AgentTests) ... ok
+test_premature_finish_blocked (test_agent.AgentTests) ... ok
+test_repairable_duration_cannot_be_declared_impossible_without_attempt (test_agent.AgentTests) ... ok
+test_same_version_content_change_rejected (test_agent.AgentTests) ... ok
+test_strict_tool_objects_have_no_optional_or_unknown_fields (test_agent.AgentTests) ... ok
+test_target_tampering_rejected (test_agent.AgentTests) ... ok
+test_tool_failure_observed_then_recovered (test_agent.AgentTests) ... ok
+test_unachievable_duration (test_agent.AgentTests) ... ok
+test_cli_persists_incomplete_task_and_returns_one (test_cli.CLITests) ... ok
+test_env_is_data_and_process_values_take_precedence (test_cli.CLITests) ... ok
+test_content_hash_changes_even_without_version_change (test_tools.ToolTests) ... ok
+test_corrupt_data_returns_error (test_tools.ToolTests) ... ok
+test_duration_ignores_draft_estimates_and_simultaneous_subtitle (test_tools.ToolTests) ... ok
+test_fabricated_claims_in_all_fields (test_tools.ToolTests) ... ok
+test_fault_injection_and_recovery (test_tools.ToolTests) ... ok
+test_invalid_parameters_and_duplicate_scene_ids (test_tools.ToolTests) ... ok
+test_missing_data_returns_error (test_tools.ToolTests) ... ok
+test_overlong_then_shorter_actual_estimate (test_tools.ToolTests) ... ok
+test_reference_integrity (test_tools.ToolTests) ... ok
+test_rounding_and_sum (test_tools.ToolTests) ... ok
+test_search_hit_and_miss (test_tools.ToolTests) ... ok
+test_supported_fact_passes (test_tools.ToolTests) ... ok
+test_title_fact_requires_reference (test_tools.ToolTests) ... ok
+test_unknown_paraphrase_fails_closed (test_tools.ToolTests) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.044s
+
+OK

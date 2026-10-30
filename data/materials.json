@@ -1,0 +1,18 @@
+{
+  "dataset_version": "1.0",
+  "synthetic": true,
+  "description": "仅用于校招考核的合成产品资料，不代表真实产品声明。",
+  "materials": [
+    {
+      "id": "P01",
+      "title": "产品字幕功能资料",
+      "keywords": ["字幕", "字幕功能"],
+      "facts": [
+        {
+          "id": "P01-F1",
+          "text": "支持字幕"
+        }
+      ]
+    }
+  ]
+}

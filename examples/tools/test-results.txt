@@ -1,0 +1,19 @@
+test_content_hash_changes_even_without_version_change (test_tools.ToolTests) ... ok
+test_corrupt_data_returns_error (test_tools.ToolTests) ... ok
+test_duration_ignores_draft_estimates_and_simultaneous_subtitle (test_tools.ToolTests) ... ok
+test_fabricated_claims_in_all_fields (test_tools.ToolTests) ... ok
+test_fault_injection_and_recovery (test_tools.ToolTests) ... ok
+test_invalid_parameters_and_duplicate_scene_ids (test_tools.ToolTests) ... ok
+test_missing_data_returns_error (test_tools.ToolTests) ... ok
+test_overlong_then_shorter_actual_estimate (test_tools.ToolTests) ... ok
+test_reference_integrity (test_tools.ToolTests) ... ok
+test_rounding_and_sum (test_tools.ToolTests) ... ok
+test_search_hit_and_miss (test_tools.ToolTests) ... ok
+test_supported_fact_passes (test_tools.ToolTests) ... ok
+test_title_fact_requires_reference (test_tools.ToolTests) ... ok
+test_unknown_paraphrase_fails_closed (test_tools.ToolTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.011s
+
+OK

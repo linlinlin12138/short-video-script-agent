@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScriptAgentInput",
+  "description": "字段可缺失以接收信息不足请求；五个字段均为业务必填项，由 Agent 请求补充。",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "topic": {"type": ["string", "null"]},
+    "audience": {"type": ["string", "null"]},
+    "platform": {"type": ["string", "null"]},
+    "target_duration_seconds": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "style": {"type": ["string", "null"]}
+  }
+}

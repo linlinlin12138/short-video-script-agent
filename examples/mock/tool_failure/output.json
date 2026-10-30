@@ -1,0 +1,39 @@
+{
+  "status": "completed",
+  "message": "脚本已通过检查",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 1,
+    "title": "字幕功能介绍",
+    "scenes": [
+      {
+        "id": "S01",
+        "visual": "产品画面",
+        "voiceover": "支持字幕",
+        "subtitle": "支持字幕",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 1.5
+      }
+    ],
+    "estimated_total_duration_seconds": 1.5
+  },
+  "checks": {
+    "script_version": 1,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。",
+    "离线 Mock 仅验证流程，不证明真实模型决策效果。"
+  ],
+  "tool_calls_used": 4
+}
