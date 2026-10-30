@@ -1,13 +1,14 @@
 {
   "status": "needs_input",
-  "message": "请补充目标时长 target_duration_seconds。",
+  "message": "还缺少目标时长，请补充后我再按抖音脚本生成。",
   "missing_fields": [
     "target_duration_seconds"
   ],
   "questions": [
-    "target_duration_seconds"
+    "请告诉我目标时长（例如 30 秒、60 秒）？"
   ],
   "script": null,
+  "source_ids": [],
   "checks": {
     "script_version": null,
     "duration": "not_run",
@@ -16,7 +17,7 @@
     "issues": []
   },
   "risks": [
-    "时长为启发式估算；事实检查仅覆盖受控表达。"
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
   ],
-  "tool_calls_used": 0
+  "tool_calls_used": 1
 }

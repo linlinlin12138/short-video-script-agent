@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "message": "已完成可直接阅读和编辑的抖音脚本，当前版本满足30秒目标区间并通过事实与品牌检查。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 2,
+    "title": "短视频创作者怎么介绍字幕功能",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "创作者对着镜头，手里拿着写有“字幕怎么讲清楚？”的纸卡，开场直接提问。",
+        "voiceover": "拍短视频时，字幕往往决定观众能不能一眼抓住重点。",
+        "subtitle": "字幕怎么讲清楚？",
+        "claims": [],
+        "estimated_duration_seconds": 6.0
+      },
+      {
+        "id": "S2",
+        "visual": "切到桌面，创作者把台本和分镜卡摊开，在卡片上圈出“字幕”两个字。",
+        "voiceover": "这次我会直接写一句：支持字幕。",
+        "subtitle": "支持字幕",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 3.8
+      },
+      {
+        "id": "S3",
+        "visual": "创作者回到镜头前，边说边用手指点着字幕卡，继续梳理口播节奏。",
+        "voiceover": "做字幕时，先把口播内容写顺，再去安排镜头和停顿。",
+        "subtitle": "先写顺口播，再排镜头",
+        "claims": [],
+        "estimated_duration_seconds": 5.8
+      },
+      {
+        "id": "S4",
+        "visual": "创作者举起完成的台本，笑着看镜头，停顿后收尾。",
+        "voiceover": "你平时做字幕，会先从文案还是镜头开始？",
+        "subtitle": "你先做哪一步？",
+        "claims": [],
+        "estimated_duration_seconds": 4.8
+      }
+    ],
+    "estimated_total_duration_seconds": 20.4
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 2,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 5
+}

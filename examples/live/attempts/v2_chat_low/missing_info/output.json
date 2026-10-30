@@ -1,0 +1,21 @@
+{
+  "status": "tool_error",
+  "message": "模型 HTTP 请求失败，状态码 400",
+  "missing_fields": [
+    "target_duration_seconds"
+  ],
+  "questions": [],
+  "script": null,
+  "source_ids": [],
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 0
+}

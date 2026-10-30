@@ -1,0 +1,272 @@
+{
+  "kind": "actual_local_tool_runs_not_agent_trace",
+  "records": [
+    {
+      "case": "search_hit",
+      "tool": "search_materials",
+      "arguments": {
+        "query": "介绍字幕功能"
+      },
+      "output": {
+        "ok": true,
+        "tool": "search_materials",
+        "result": {
+          "query": "介绍字幕功能",
+          "matches": [
+            {
+              "id": "P01",
+              "title": "产品字幕功能资料",
+              "keywords": [
+                "字幕",
+                "字幕功能"
+              ],
+              "facts": [
+                {
+                  "id": "P01-F1",
+                  "text": "支持字幕"
+                }
+              ],
+              "score": 2
+            }
+          ],
+          "total_matches": 1,
+          "method": "normalized_substring"
+        }
+      }
+    },
+    {
+      "case": "search_miss",
+      "tool": "search_materials",
+      "arguments": {
+        "query": "视频降噪"
+      },
+      "output": {
+        "ok": true,
+        "tool": "search_materials",
+        "result": {
+          "query": "视频降噪",
+          "matches": [],
+          "total_matches": 0,
+          "method": "normalized_substring"
+        }
+      }
+    },
+    {
+      "case": "duration_pass",
+      "tool": "estimate_duration",
+      "arguments": {
+        "script": {
+          "version": 1,
+          "title": "字幕功能介绍",
+          "scenes": [
+            {
+              "id": "S01",
+              "visual": "产品画面",
+              "voiceover": "支持字幕",
+              "subtitle": "支持字幕",
+              "estimated_duration_seconds": 1.5,
+              "claims": [
+                {
+                  "text": "支持字幕",
+                  "source_id": "P01",
+                  "fact_id": "P01-F1"
+                }
+              ]
+            }
+          ],
+          "estimated_total_duration_seconds": 1.5
+        },
+        "target_duration_seconds": 30
+      },
+      "output": {
+        "ok": true,
+        "tool": "estimate_duration",
+        "result": {
+          "script_version": 1,
+          "script_hash": "0fe089a16ebb0d4281a5229e0488ade3edc1548418d62d343174e4b6506632a9",
+          "scenes": [
+            {
+              "id": "S01",
+              "voiceover_units": 4,
+              "subtitle_units": 4,
+              "estimated_duration_seconds": 1.5
+            }
+          ],
+          "estimated_total_duration_seconds": 1.5,
+          "target_duration_seconds": 30,
+          "status": "passed",
+          "over_by_seconds": 0.0,
+          "method": "max(旁白单位/4, 字幕单位/5, 1秒画面下限) + 每镜0.5秒停顿；每镜向上取一位小数后求和",
+          "limitations": [
+            "启发式估算，不能替代实际配音与剪辑；不采信输入中的预计时长。"
+          ]
+        }
+      }
+    },
+    {
+      "case": "rules_pass",
+      "tool": "check_rules",
+      "arguments": {
+        "script": {
+          "version": 1,
+          "title": "字幕功能介绍",
+          "scenes": [
+            {
+              "id": "S01",
+              "visual": "产品画面",
+              "voiceover": "支持字幕",
+              "subtitle": "支持字幕",
+              "estimated_duration_seconds": 1.5,
+              "claims": [
+                {
+                  "text": "支持字幕",
+                  "source_id": "P01",
+                  "fact_id": "P01-F1"
+                }
+              ]
+            }
+          ],
+          "estimated_total_duration_seconds": 1.5
+        }
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "0fe089a16ebb0d4281a5229e0488ade3edc1548418d62d343174e4b6506632a9",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "controlled_language",
+          "limitations": [
+            "只核验受控事实原文与中性表达清单；清单外表达保守拒绝，不提供通用语义事实判断。"
+          ]
+        }
+      }
+    },
+    {
+      "case": "duration_over_limit",
+      "tool": "estimate_duration",
+      "arguments": {
+        "script": {
+          "version": 1,
+          "title": "字幕功能介绍",
+          "scenes": [
+            {
+              "id": "S01",
+              "visual": "产品画面",
+              "voiceover": "字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕",
+              "subtitle": "支持字幕",
+              "estimated_duration_seconds": 1.5,
+              "claims": [
+                {
+                  "text": "支持字幕",
+                  "source_id": "P01",
+                  "fact_id": "P01-F1"
+                }
+              ]
+            }
+          ],
+          "estimated_total_duration_seconds": 1.5
+        },
+        "target_duration_seconds": 30
+      },
+      "output": {
+        "ok": true,
+        "tool": "estimate_duration",
+        "result": {
+          "script_version": 1,
+          "script_hash": "90d5dadc516c7fa26a06d51c61a469cd1b05d539f75d4e136f2f1e8e583ccb02",
+          "scenes": [
+            {
+              "id": "S01",
+              "voiceover_units": 160,
+              "subtitle_units": 4,
+              "estimated_duration_seconds": 40.5
+            }
+          ],
+          "estimated_total_duration_seconds": 40.5,
+          "target_duration_seconds": 30,
+          "status": "failed",
+          "over_by_seconds": 10.5,
+          "method": "max(旁白单位/4, 字幕单位/5, 1秒画面下限) + 每镜0.5秒停顿；每镜向上取一位小数后求和",
+          "limitations": [
+            "启发式估算，不能替代实际配音与剪辑；不采信输入中的预计时长。"
+          ]
+        }
+      }
+    },
+    {
+      "case": "unsupported_claim",
+      "tool": "check_rules",
+      "arguments": {
+        "script": {
+          "version": 1,
+          "title": "字幕功能介绍",
+          "scenes": [
+            {
+              "id": "S01",
+              "visual": "产品画面",
+              "voiceover": "效率提升 80%",
+              "subtitle": "支持字幕",
+              "estimated_duration_seconds": 1.5,
+              "claims": [
+                {
+                  "text": "支持字幕",
+                  "source_id": "P01",
+                  "fact_id": "P01-F1"
+                }
+              ]
+            }
+          ],
+          "estimated_total_duration_seconds": 1.5
+        }
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "4cca95558aad040431516690ee9a52f0279bc0de87ee5e48e07d0e0702f89e98",
+          "facts": "failed",
+          "brand": "failed",
+          "issues": [
+            {
+              "rule_id": "BR02",
+              "location": "S01.voiceover",
+              "text": "效率提升 80%",
+              "reason": "命中当前合成品牌规则禁止示例"
+            },
+            {
+              "rule_id": "BR01",
+              "location": "S01.voiceover",
+              "text": "效率提升 80%",
+              "reason": "不在受控事实或中性表达清单内，需改写或补充资料；不代表已证明为假"
+            }
+          ],
+          "mode": "controlled_language",
+          "limitations": [
+            "只核验受控事实原文与中性表达清单；清单外表达保守拒绝，不提供通用语义事实判断。"
+          ]
+        }
+      }
+    },
+    {
+      "case": "tool_failure",
+      "tool": "search_materials",
+      "arguments": {
+        "query": "字幕"
+      },
+      "output": {
+        "ok": false,
+        "tool": "search_materials",
+        "error": {
+          "code": "INJECTED_FAILURE",
+          "message": "测试注入的临时工具错误",
+          "retryable": true
+        }
+      }
+    }
+  ]
+}

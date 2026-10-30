@@ -1,0 +1,23 @@
+{
+  "status": "needs_input",
+  "message": "还缺少一个关键字段：目标时长。请告诉我你希望这条抖音脚本控制在多少秒。",
+  "missing_fields": [
+    "target_duration_seconds"
+  ],
+  "questions": [
+    "目标时长是多少秒？"
+  ],
+  "script": null,
+  "source_ids": [],
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 0
+}

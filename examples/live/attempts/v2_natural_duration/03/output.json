@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "message": "已完成可直接使用的抖音脚本，时长与事实/品牌检查均通过。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 2,
+    "title": "字幕功能怎么用，创作者一眼看懂",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "创作者对着手机镜头皱眉，桌上放着脚本纸和一支笔，画面弹出手写卡片“口播后总差一点”。",
+        "voiceover": "拍短视频时，最怕口播结束了，画面却还没把重点说完。",
+        "subtitle": "口播结束了，重点还没说完。",
+        "claims": [],
+        "estimated_duration_seconds": 6.0
+      },
+      {
+        "id": "S2",
+        "visual": "切到桌面近景，手写卡片写着“字幕功能”，创作者用笔在旁边补充说明。",
+        "voiceover": "这时就可以用支持字幕，把你想让观众看见的重点放出来。",
+        "subtitle": "支持字幕，把重点放出来。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 6.5
+      },
+      {
+        "id": "S3",
+        "visual": "创作者回到镜头前，手指点向台本上的三处关键词，最后举起成稿卡片。",
+        "voiceover": "做法很简单：先写清关键词，再配合画面节奏，让观众更容易跟上你的内容。",
+        "subtitle": "先写关键词，再配合画面节奏。",
+        "claims": [],
+        "estimated_duration_seconds": 8.0
+      },
+      {
+        "id": "S4",
+        "visual": "创作者看向镜头，手里拿着写有“字幕”的纸卡，继续对着镜头口播收尾。",
+        "voiceover": "如果你也在做口播，不妨先试试这一项，看看你的表达会不会更顺。",
+        "subtitle": "你也试试这一项。",
+        "claims": [],
+        "estimated_duration_seconds": 7.3
+      }
+    ],
+    "estimated_total_duration_seconds": 27.8
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 2,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 5
+}

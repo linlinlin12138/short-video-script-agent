@@ -1,0 +1,57 @@
+{
+  "status": "completed",
+  "message": "已完成：第三版脚本通过检查，预计总时长 28.6 秒，落在 30 秒目标的合格区间内。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 3,
+    "title": "做短视频时，先把字幕这件事说清楚",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者坐在桌前，手机架、纸笔和一张写着“字幕”的卡片摆在一起，镜头先停在手卡上。",
+        "voiceover": "做短视频，很多人先盯封面、转场，其实先碰到的，是字幕这一关：要不要加、怎么留位置、怎么让观众看得顺眼。",
+        "subtitle": "先碰到的是字幕这一关。",
+        "claims": [],
+        "estimated_duration_seconds": 11.3
+      },
+      {
+        "id": "s2",
+        "visual": "创作者把“字幕”写进提纲，在纸上圈出来，再对着镜头抬头示意。",
+        "voiceover": "今天只说一个最基础的点：这个产品，支持字幕。",
+        "subtitle": "支持字幕",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 5.3
+      },
+      {
+        "id": "s3",
+        "visual": "创作者把提纲整理平整，切到对镜口播状态，旁边保留空白纸卡。",
+        "voiceover": "所以你在拍口播、教程或日常记录时，可以先把提纲、手卡和节奏排好，再处理字幕。你平时会先写提纲，还是先开拍？",
+        "subtitle": "你会先写提纲，还是先开拍？",
+        "claims": [],
+        "estimated_duration_seconds": 12.0
+      }
+    ],
+    "estimated_total_duration_seconds": 28.6
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 3,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 7
+}

@@ -1,0 +1,67 @@
+{
+  "status": "completed",
+  "message": "已完成 30 秒抖音脚本草稿，当前版本通过时长与规则检查。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 1,
+    "title": "短视频字幕先怎么写？",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者坐在镜头前，反复暂停回看素材，桌边贴着一张手写便签“字幕总是卡壳”。",
+        "voiceover": "拍短视频最怕什么？不是没镜头，是字幕一乱，整条都显得没重点。",
+        "subtitle": "拍短视频最怕字幕一乱，整条都没重点。",
+        "claims": [],
+        "estimated_duration_seconds": 7.0
+      },
+      {
+        "id": "s2",
+        "visual": "桌面俯拍，纸上写着“开场 / 重点 / 收尾”三个栏目，手边放着一支笔。",
+        "voiceover": "我会先把口播拆成三段：开场一句、重点两句、最后留个提问。",
+        "subtitle": "先把口播拆成开场、重点、收尾。",
+        "claims": [],
+        "estimated_duration_seconds": 6.5
+      },
+      {
+        "id": "s3",
+        "visual": "手持一张卡片，纸面上清楚写着“支持字幕”。",
+        "voiceover": "我最先确认的，就是“支持字幕”这件事。",
+        "subtitle": "我最先确认的，就是“支持字幕”这件事。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 4.3
+      },
+      {
+        "id": "s4",
+        "visual": "创作者抬头看向镜头，手指点着纸上的提纲，画面停在结尾提问。",
+        "voiceover": "你剪短视频时，最先卡住的是字幕，还是开头？留言告诉我。",
+        "subtitle": "你最先卡住的是字幕，还是开头？",
+        "claims": [],
+        "estimated_duration_seconds": 6.3
+      }
+    ],
+    "estimated_total_duration_seconds": 24.1
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 1,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "semantic": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。"
+  ],
+  "tool_calls_used": 3
+}

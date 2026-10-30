@@ -1,11 +1,12 @@
 {
-  "status": "insufficient_material",
-  "message": "目前没有检索到可用于“视频降噪功能”脚本的本地素材事实。",
+  "status": "needs_input",
+  "message": "暂未检索到“视频降噪/噪声抑制”相关可引用素材，不能直接编写带事实引用的抖音脚本。",
   "missing_fields": [],
   "questions": [
-    "请提供与该产品视频降噪功能相关的素材事实，或上传可检索的产品资料。"
+    "请提供这项功能对应的素材事实，至少包含可逐字引用的事实文本、source_id 和 fact_id。"
   ],
   "script": null,
+  "source_ids": [],
   "checks": {
     "script_version": null,
     "duration": "not_run",
@@ -14,7 +15,7 @@
     "issues": []
   },
   "risks": [
-    "时长为启发式估算；事实检查仅覆盖受控表达。"
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
   ],
-  "tool_calls_used": 1
+  "tool_calls_used": 2
 }

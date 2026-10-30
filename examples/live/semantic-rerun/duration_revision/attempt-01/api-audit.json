@@ -1,0 +1,262 @@
+{
+  "scope": "actual_HTTPModel_post_calls_no_response_substitution",
+  "command_arguments": [
+    "--input",
+    "examples/live/semantic-rerun/duration_revision/attempt-01/input.json",
+    "--model",
+    "live",
+    "--env-file",
+    ".env",
+    "--api",
+    "responses",
+    "--reasoning-effort",
+    "medium",
+    "--timeout",
+    "60",
+    "--output-dir",
+    "examples/live/semantic-rerun/duration_revision/attempt-01"
+  ],
+  "calls": [
+    {
+      "index": 1,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "afbdd74d0b4c27089463a30944457fe0ba1c445e8a0c0541ac7515ef64fdc161",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_00730a576f0d0252016ae4ecb0b52c87d29f3b424ecd2a28d6",
+      "response_hash": "449501b9358e1b8a16a0511902a92f5348f53ab7fd6e1c8095e766b0b73251a5",
+      "elapsed_seconds": 1.766
+    },
+    {
+      "index": 2,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "3793a68a628ae5cc4ca37038b80d944fe103f15ff3cafb8485d5c7cb7fb42c9e",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_00730a576f0d0252016ae4ecb2429887d2b8fc38164c1f8010",
+      "response_hash": "c77691f8a635cb9812d8a0f6ffa9f05db67c423ebea96a6bee2bb5dd848ea311",
+      "elapsed_seconds": 5.653
+    },
+    {
+      "index": 3,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "477b6ce02bd50b4dd1d0114171fc0cf372cf0cad93c5832440c3b5ab55b44cf3",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_00730a576f0d0252016ae4ecb7e42487d2aebb4e160a682bcd",
+      "response_hash": "9ea7dff1ad1ab4537f6bf1c62eb548b7c95f25906ae04051152def5a69a50d50",
+      "elapsed_seconds": 5.327
+    },
+    {
+      "index": 4,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "2ad844a7d2b2f373bb66069e7c8a9d5ce512f078c6e5b9d67e2ecfa38a92e3d8",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_00730a576f0d0252016ae4ecbd437c87d2bb51793969038dd1",
+      "response_hash": "5110f60a4244c2feed052863f83a673380660fdf255f52a71f1c4af168ae2c04",
+      "elapsed_seconds": 2.437
+    },
+    {
+      "index": 5,
+      "kind": "semantic_judge",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "b702fe0008cfbf5ddb34f23bd30c58b66c4881a1f80964d7a28769e2b3a15e31",
+      "judge_input": {
+        "facts": [
+          {
+            "source_id": "P01",
+            "fact_id": "P01-F1",
+            "text": "支持字幕"
+          }
+        ],
+        "segments": [
+          {
+            "id": "G01",
+            "location": "title",
+            "text": "字幕功能怎么拍"
+          },
+          {
+            "id": "G02",
+            "location": "s1.visual",
+            "text": "创作者对着手机镜头皱眉，手里拿着写了几行字的卡片"
+          },
+          {
+            "id": "G03",
+            "location": "s1.voiceover",
+            "text": "拍口播时，最怕一句话说顺了，下一句又卡住，镜头也会跟着停一下"
+          },
+          {
+            "id": "G04",
+            "location": "s1.subtitle",
+            "text": "拍口播最怕卡壳"
+          },
+          {
+            "id": "G05",
+            "location": "s2.visual",
+            "text": "桌面俯拍：纸卡上写着“开场、重点、收尾”三行提纲"
+          },
+          {
+            "id": "G06",
+            "location": "s2.voiceover",
+            "text": "我会先把内容拆成三段：开场说什么，重点讲什么，最后怎么收，再开始拍"
+          },
+          {
+            "id": "G07",
+            "location": "s2.subtitle",
+            "text": "先拆成三段再拍"
+          },
+          {
+            "id": "G08",
+            "location": "s3.visual",
+            "text": "创作者指着纸卡上的“字幕”两个字，镜头切回正脸口播"
+          },
+          {
+            "id": "G09",
+            "location": "s3.voiceover",
+            "text": "这个产品支持字幕"
+          },
+          {
+            "id": "G10",
+            "location": "s3.voiceover",
+            "text": "我会先把字幕写顺，再照着卡片把口播拍完"
+          },
+          {
+            "id": "G11",
+            "location": "s3.subtitle",
+            "text": "这个产品支持字幕"
+          },
+          {
+            "id": "G12",
+            "location": "s4.visual",
+            "text": "创作者收起纸卡，对镜头比出邀请手势"
+          },
+          {
+            "id": "G13",
+            "location": "s4.voiceover",
+            "text": "你拍视频时，会先写字幕提纲，还是拍完再整理"
+          },
+          {
+            "id": "G14",
+            "location": "s4.voiceover",
+            "text": "欢迎留言，聊聊你的习惯"
+          },
+          {
+            "id": "G15",
+            "location": "s4.subtitle",
+            "text": "你会先写字幕吗"
+          }
+        ]
+      },
+      "instructions_hash": "73cc79d6dc8c7046fb8c17e2a558a9724d5c47e287065902cb66c740202a9559",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_01cd6e5e36cbf3ff016ae4ecbfa77c87d2bb9e20c57c1d1233",
+      "response_hash": "eeb38b74b130407fae67c02e0a809616eb7c9b689e08815a1d2c1e3307f441f7",
+      "verdict": {
+        "segments": [
+          {
+            "id": "G01",
+            "claims": []
+          },
+          {
+            "id": "G02",
+            "claims": []
+          },
+          {
+            "id": "G03",
+            "claims": []
+          },
+          {
+            "id": "G04",
+            "claims": []
+          },
+          {
+            "id": "G05",
+            "claims": []
+          },
+          {
+            "id": "G06",
+            "claims": []
+          },
+          {
+            "id": "G07",
+            "claims": []
+          },
+          {
+            "id": "G08",
+            "claims": []
+          },
+          {
+            "id": "G09",
+            "claims": [
+              {
+                "text": "这个产品支持字幕",
+                "verdict": "supported",
+                "fact_ids": [
+                  "P01-F1"
+                ],
+                "reason": "事实中直接写明“支持字幕”，与该表述一致。"
+              }
+            ]
+          },
+          {
+            "id": "G10",
+            "claims": []
+          },
+          {
+            "id": "G11",
+            "claims": [
+              {
+                "text": "这个产品支持字幕",
+                "verdict": "supported",
+                "fact_ids": [
+                  "P01-F1"
+                ],
+                "reason": "事实中直接写明“支持字幕”，与该表述一致。"
+              }
+            ]
+          },
+          {
+            "id": "G12",
+            "claims": []
+          },
+          {
+            "id": "G13",
+            "claims": []
+          },
+          {
+            "id": "G14",
+            "claims": []
+          },
+          {
+            "id": "G15",
+            "claims": []
+          }
+        ]
+      },
+      "elapsed_seconds": 2.662
+    },
+    {
+      "index": 6,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "01ad59f1041cedfb62165e8fc492f177a3b709531458bd7aed56984c07a8dd42",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_00730a576f0d0252016ae4ecc2641487d2be485fea17468202",
+      "response_hash": "5e0901cee45efe94b2c22632cbe7037a5f7ce21710fb3b7d73876eb96277364a",
+      "elapsed_seconds": 1.317
+    }
+  ]
+}

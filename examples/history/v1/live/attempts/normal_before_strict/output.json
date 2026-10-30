@@ -1,0 +1,39 @@
+{
+  "status": "needs_input",
+  "message": "当前仅有“支持字幕”这一条事实，但受控表达要求标题、画面和旁白需改为中性表达或补充更多素材。",
+  "missing_fields": [],
+  "questions": [
+    "请补充该产品字幕功能的更多素材事实，或允许使用更通用的中性标题/画面表达。"
+  ],
+  "script": null,
+  "checks": {
+    "script_version": 2,
+    "duration": "not_run",
+    "facts": "failed",
+    "brand": "passed",
+    "issues": [
+      {
+        "rule_id": "BR01",
+        "location": "title",
+        "text": "产品字幕功能介绍",
+        "reason": "不在受控事实或中性表达清单内，需改写或补充资料；不代表已证明为假"
+      },
+      {
+        "rule_id": "BR01",
+        "location": "scene-1.visual",
+        "text": "字幕功能示意画面",
+        "reason": "不在受控事实或中性表达清单内，需改写或补充资料；不代表已证明为假"
+      },
+      {
+        "rule_id": "BR01",
+        "location": "scene-1.voiceover",
+        "text": "这款产品支持字幕",
+        "reason": "不在受控事实或中性表达清单内，需改写或补充资料；不代表已证明为假"
+      }
+    ]
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。"
+  ],
+  "tool_calls_used": 4
+}

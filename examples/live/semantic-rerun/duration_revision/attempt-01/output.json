@@ -1,0 +1,67 @@
+{
+  "status": "completed",
+  "message": "已完成：当前脚本第2版通过时长与规则检查，可直接使用。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 2,
+    "title": "字幕功能怎么拍",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者对着手机镜头皱眉，手里拿着写了几行字的卡片。",
+        "voiceover": "拍口播时，最怕一句话说顺了，下一句又卡住，镜头也会跟着停一下。",
+        "subtitle": "拍口播最怕卡壳。",
+        "claims": [],
+        "estimated_duration_seconds": 7.3
+      },
+      {
+        "id": "s2",
+        "visual": "桌面俯拍：纸卡上写着“开场、重点、收尾”三行提纲。",
+        "voiceover": "我会先把内容拆成三段：开场说什么，重点讲什么，最后怎么收，再开始拍。",
+        "subtitle": "先拆成三段再拍。",
+        "claims": [],
+        "estimated_duration_seconds": 7.8
+      },
+      {
+        "id": "s3",
+        "visual": "创作者指着纸卡上的“字幕”两个字，镜头切回正脸口播。",
+        "voiceover": "这个产品支持字幕。我会先把字幕写顺，再照着卡片把口播拍完。",
+        "subtitle": "这个产品支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 7.0
+      },
+      {
+        "id": "s4",
+        "visual": "创作者收起纸卡，对镜头比出邀请手势。",
+        "voiceover": "你拍视频时，会先写字幕提纲，还是拍完再整理？欢迎留言，聊聊你的习惯。",
+        "subtitle": "你会先写字幕吗？",
+        "claims": [],
+        "estimated_duration_seconds": 7.8
+      }
+    ],
+    "estimated_total_duration_seconds": 29.9
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 2,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "semantic": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。"
+  ],
+  "tool_calls_used": 4
+}

@@ -1,0 +1,21 @@
+{
+  "status": "insufficient_material",
+  "message": "本地素材中未检索到“视频降噪”相关可引用事实，无法在不虚构产品能力的前提下继续生成合规脚本。",
+  "missing_fields": [],
+  "questions": [
+    "请提供该产品关于视频降噪的素材事实，最好包含可直接引用的原文、source_id 和 fact_id。"
+  ],
+  "script": null,
+  "source_ids": [],
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 1
+}

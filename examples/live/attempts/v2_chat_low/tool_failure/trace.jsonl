@@ -1,0 +1,3 @@
+{"event": "run_start", "mode": "live", "model": "gpt-5.4-mini-2026-03-17", "input": {"topic": "介绍产品的字幕功能", "audience": "短视频创作者", "platform": "抖音", "target_duration_seconds": 30, "style": "简洁、实用"}, "max_tools": 10, "max_rounds": 12, "prompt_version": "2.0-narrative-and-evidence", "rules_version": "2.0", "reasoning_effort": "low", "prompt_hash": "6561b6ff5129be38d4a2e703e5ec9b957035e5b4b28d1b6b72bbb1baeb06d5d6"}
+{"event": "model_error", "step": 1, "message": "模型 HTTP 请求失败，状态码 400"}
+{"event": "task_end", "status": "tool_error", "tool_calls_used": 0}

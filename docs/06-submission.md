@@ -4,7 +4,7 @@
 
 1. 阅读 [README](../README.md)，运行离线测试和 CLI。
 2. 查看 [真实运行说明](../examples/live/README.md) 与 [评估报告](03-evaluation.md)，逐项对应输入、输出和 Trace。
-3. 重点查看超时路径：4.5 秒第一版 → 结束请求被拒绝 → 模型修改第二版 → 1.5 秒并重新检查通过。
+3. 重点查看超时路径：最新版普通30秒请求：36.2秒超时 → 模型自主压缩为20.1秒，并通过真实语义判定；最终检查通过且没有门禁拒绝。
 4. 查看 [方案](02-solution.md)、[AI 使用](04-ai-usage.md)、[复盘](05-retrospective.md)，理解事实检查边界和个人贡献记录。
 
 ## 交付状态
@@ -13,25 +13,28 @@
 
 正式提交仍需：
 
-- 候选人补充实际投入时间与个人独立修改，不能用 AI 起草内容替代个人声明。
-- 将本项目放入独立 GitHub 仓库，确认评审可访问。
+- 候选人补充实际投入时间；问题发现与修改方案贡献已记录在04-ai-usage.md，另有独立工作时再按实际追加，并保留AI辅助分工说明。
+- 正常、超时修正、工具失败已用最新版重跑并核对真实语义判定；missing_info/no_material尚保留历史记录。36句真实评估已完成，语义/最终层35/36符合预期，留出集20/20，开发集仍有一条目标句漏检和同次标题误报，详见03-evaluation.md。
+- 仓库为https://github.com/linlinlin12138/short-video-script-agent，当前账号可读写；仓库私有，仍需确认指定评审账号可读。
 - 填写题号或题名、仓库 URL 和最终 commit SHA。考题未给出本题数字编号，不能自行编造。
 
 可使用以下提交信息格式，但下列占位符不是已完成的交付信息：
 
 ```text
 题目：短视频脚本 Agent（题号按原试卷补充）
-GitHub URL：待填写
-最终 commit SHA：待填写
+GitHub URL：https://github.com/linlinlin12138/short-video-script-agent
+最终 commit SHA：以本次推送后的 git rev-parse HEAD 和远程 main 一致结果为准
 实际投入时间：待本人补充
 ```
 
 ## Git 仓库边界
 
-当前工作目录尚无本项目独立的 .git，Git 会向上识别到其他项目。发布前应先在本项目目录初始化独立仓库，并确认 git rev-parse --show-toplevel 返回本项目目录，再添加文件。不要在上层仓库执行 git add . 或直接使用其远程地址。
+本项目已经初始化独立 .git。发布或继续提交前，仍应确认 git rev-parse --show-toplevel 返回本项目目录，再添加文件。不要在上层仓库执行 git add . 或直接使用其远程地址。
 
 dist/submission.zip 是仅包含本项目允许文件的交付副本，排除了 .env、运行缓存和其他目录。它便于检查或迁移，不能替代考核要求的 GitHub 仓库与 SHA。解压后的项目仍需按 README 安装和运行。
 
 ## 复核记录
 
 离线安装和运行的独立副本复核见 [delivery-check.txt](../examples/delivery-check.txt)。该复核不重新调用付费模型，也不更改保存的真实模型结果。
+
+压缩包仅在明确要求时更新；本次36句真实评估结果仅更新工作目录，未重新生成dist/submission.zip。

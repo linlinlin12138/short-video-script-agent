@@ -1,0 +1,20 @@
+{
+  "status": "tool_error",
+  "message": "素材检索工具返回临时错误，无法继续生成脚本。",
+  "missing_fields": [],
+  "questions": [
+    "请稍后重试，或提供可用的产品素材/事实清单（包含 source_id 和 fact_id）。"
+  ],
+  "script": null,
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。"
+  ],
+  "tool_calls_used": 1
+}

@@ -4,15 +4,19 @@
   "missing_fields": [],
   "questions": [],
   "script": null,
+  "source_ids": [],
   "checks": {
     "script_version": null,
     "duration": "not_run",
     "facts": "not_run",
     "brand": "not_run",
+    "semantic": "not_run",
     "issues": []
   },
   "risks": [
-    "时长为启发式估算；事实检查仅覆盖受控表达。",
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。",
+    "本次语义复核使用离线固定标注，不代表真实语义判定。",
     "离线 Mock 仅验证流程，不证明真实模型决策效果。"
   ],
   "tool_calls_used": 3

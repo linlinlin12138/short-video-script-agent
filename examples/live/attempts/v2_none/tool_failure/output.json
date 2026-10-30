@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "message": "已生成可直接阅读和编辑的抖音脚本，当前版本时长与规则检查均通过。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 1,
+    "title": "字幕功能怎么用，创作者拍给你看",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者在桌前打开剪辑软件，指着屏幕上的字幕区域，镜头快速推进到字幕位置。",
+        "voiceover": "做短视频，字幕真的很重要。",
+        "subtitle": "字幕真的很重要。",
+        "claims": [],
+        "estimated_duration_seconds": 3.3
+      },
+      {
+        "id": "s2",
+        "visual": "切到手写卡片写着“支持字幕”，再切回创作者面对镜头讲解。",
+        "voiceover": "这款产品支持字幕，你可以把它用在日常剪辑里。",
+        "subtitle": "这款产品支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 5.5
+      },
+      {
+        "id": "s3",
+        "visual": "创作者边点头边做一个“就这样”的手势，屏幕上保留简洁字幕条。",
+        "voiceover": "如果你也在做口播、混剪或日常更新，可以试试把字幕加进去。",
+        "subtitle": "如果你也在做口播、混剪或日常更新，可以试试把字幕加进去。",
+        "claims": [],
+        "estimated_duration_seconds": 6.8
+      },
+      {
+        "id": "s4",
+        "visual": "创作者看向镜头，指向评论区位置，最后定格在字幕画面。",
+        "voiceover": "你最常在哪种视频里用字幕？评论区告诉我。",
+        "subtitle": "你最常在哪种视频里用字幕？评论区告诉我。",
+        "claims": [],
+        "estimated_duration_seconds": 5.0
+      }
+    ],
+    "estimated_total_duration_seconds": 20.6
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 1,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 4
+}

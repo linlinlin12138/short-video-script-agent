@@ -57,14 +57,20 @@
       "arguments": {
         "script": {
           "version": 1,
-          "title": "字幕功能介绍",
+          "title": "拍口播时，你想让观众记住哪句话？",
           "scenes": [
             {
               "id": "S01",
-              "visual": "产品画面",
-              "voiceover": "支持字幕",
-              "subtitle": "支持字幕",
-              "estimated_duration_seconds": 1.5,
+              "visual": "创作者面对镜头，停下手中的拍摄准备，切到手写重点的纸卡。",
+              "voiceover": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+              "subtitle": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+              "claims": []
+            },
+            {
+              "id": "S02",
+              "visual": "切到写着产品事实的文字卡，再回到创作者准备的内容提纲。",
+              "voiceover": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
+              "subtitle": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
               "claims": [
                 {
                   "text": "支持字幕",
@@ -72,9 +78,15 @@
                   "fact_id": "P01-F1"
                 }
               ]
+            },
+            {
+              "id": "S03",
+              "visual": "回到口播画面，创作者指向自己的提纲，最后停在评论区提问的文字卡。",
+              "voiceover": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "subtitle": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "claims": []
             }
-          ],
-          "estimated_total_duration_seconds": 1.5
+          ]
         },
         "target_duration_seconds": 30
       },
@@ -83,18 +95,33 @@
         "tool": "estimate_duration",
         "result": {
           "script_version": 1,
-          "script_hash": "0fe089a16ebb0d4281a5229e0488ade3edc1548418d62d343174e4b6506632a9",
+          "script_hash": "79d191184f7a34429250b85a14371eccf29ac38ffadd04a4c04496b1b1870527",
           "scenes": [
             {
               "id": "S01",
-              "voiceover_units": 4,
-              "subtitle_units": 4,
-              "estimated_duration_seconds": 1.5
+              "voiceover_units": 28,
+              "subtitle_units": 28,
+              "estimated_duration_seconds": 7.5
+            },
+            {
+              "id": "S02",
+              "voiceover_units": 28,
+              "subtitle_units": 28,
+              "estimated_duration_seconds": 7.5
+            },
+            {
+              "id": "S03",
+              "voiceover_units": 33,
+              "subtitle_units": 33,
+              "estimated_duration_seconds": 8.8
             }
           ],
-          "estimated_total_duration_seconds": 1.5,
+          "estimated_total_duration_seconds": 23.8,
           "target_duration_seconds": 30,
           "status": "passed",
+          "minimum_duration_seconds": 20.0,
+          "direction": "within_range",
+          "under_by_seconds": 0.0,
           "over_by_seconds": 0.0,
           "method": "max(旁白单位/4, 字幕单位/5, 1秒画面下限) + 每镜0.5秒停顿；每镜向上取一位小数后求和",
           "limitations": [
@@ -109,14 +136,20 @@
       "arguments": {
         "script": {
           "version": 1,
-          "title": "字幕功能介绍",
+          "title": "拍口播时，你想让观众记住哪句话？",
           "scenes": [
             {
               "id": "S01",
-              "visual": "产品画面",
-              "voiceover": "支持字幕",
-              "subtitle": "支持字幕",
-              "estimated_duration_seconds": 1.5,
+              "visual": "创作者面对镜头，停下手中的拍摄准备，切到手写重点的纸卡。",
+              "voiceover": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+              "subtitle": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+              "claims": []
+            },
+            {
+              "id": "S02",
+              "visual": "切到写着产品事实的文字卡，再回到创作者准备的内容提纲。",
+              "voiceover": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
+              "subtitle": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
               "claims": [
                 {
                   "text": "支持字幕",
@@ -124,9 +157,15 @@
                   "fact_id": "P01-F1"
                 }
               ]
+            },
+            {
+              "id": "S03",
+              "visual": "回到口播画面，创作者指向自己的提纲，最后停在评论区提问的文字卡。",
+              "voiceover": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "subtitle": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "claims": []
             }
-          ],
-          "estimated_total_duration_seconds": 1.5
+          ]
         }
       },
       "output": {
@@ -134,13 +173,19 @@
         "tool": "check_rules",
         "result": {
           "script_version": 1,
-          "script_hash": "0fe089a16ebb0d4281a5229e0488ade3edc1548418d62d343174e4b6506632a9",
+          "script_hash": "79d191184f7a34429250b85a14371eccf29ac38ffadd04a4c04496b1b1870527",
           "facts": "passed",
           "brand": "passed",
+          "lexical": "passed",
+          "semantic": {
+            "status": "not_configured",
+            "claims": []
+          },
           "issues": [],
-          "mode": "controlled_language",
+          "mode": "claims_risk_signals_and_semantic_review",
           "limitations": [
-            "只核验受控事实原文与中性表达清单；清单外表达保守拒绝，不提供通用语义事实判断。"
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。",
+            "语义复核依赖判定模型，可能误判；未配置判定模型时只有词法层，Agent 不允许完成。"
           ]
         }
       }
@@ -151,14 +196,20 @@
       "arguments": {
         "script": {
           "version": 1,
-          "title": "字幕功能介绍",
+          "title": "拍口播时，你想让观众记住哪句话？",
           "scenes": [
             {
               "id": "S01",
-              "visual": "产品画面",
+              "visual": "创作者面对镜头，停下手中的拍摄准备，切到手写重点的纸卡。",
               "voiceover": "字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕字幕",
-              "subtitle": "支持字幕",
-              "estimated_duration_seconds": 1.5,
+              "subtitle": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+              "claims": []
+            },
+            {
+              "id": "S02",
+              "visual": "切到写着产品事实的文字卡，再回到创作者准备的内容提纲。",
+              "voiceover": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
+              "subtitle": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
               "claims": [
                 {
                   "text": "支持字幕",
@@ -166,9 +217,15 @@
                   "fact_id": "P01-F1"
                 }
               ]
+            },
+            {
+              "id": "S03",
+              "visual": "回到口播画面，创作者指向自己的提纲，最后停在评论区提问的文字卡。",
+              "voiceover": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "subtitle": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "claims": []
             }
-          ],
-          "estimated_total_duration_seconds": 1.5
+          ]
         },
         "target_duration_seconds": 30
       },
@@ -177,19 +234,34 @@
         "tool": "estimate_duration",
         "result": {
           "script_version": 1,
-          "script_hash": "90d5dadc516c7fa26a06d51c61a469cd1b05d539f75d4e136f2f1e8e583ccb02",
+          "script_hash": "be4e2d0049c0a78b73844bd696c4ca65dd4d025b94f5b45b9e61a5d70ffb736b",
           "scenes": [
             {
               "id": "S01",
               "voiceover_units": 160,
-              "subtitle_units": 4,
+              "subtitle_units": 28,
               "estimated_duration_seconds": 40.5
+            },
+            {
+              "id": "S02",
+              "voiceover_units": 28,
+              "subtitle_units": 28,
+              "estimated_duration_seconds": 7.5
+            },
+            {
+              "id": "S03",
+              "voiceover_units": 33,
+              "subtitle_units": 33,
+              "estimated_duration_seconds": 8.8
             }
           ],
-          "estimated_total_duration_seconds": 40.5,
+          "estimated_total_duration_seconds": 56.8,
           "target_duration_seconds": 30,
           "status": "failed",
-          "over_by_seconds": 10.5,
+          "minimum_duration_seconds": 20.0,
+          "direction": "too_long",
+          "under_by_seconds": 0.0,
+          "over_by_seconds": 26.8,
           "method": "max(旁白单位/4, 字幕单位/5, 1秒画面下限) + 每镜0.5秒停顿；每镜向上取一位小数后求和",
           "limitations": [
             "启发式估算，不能替代实际配音与剪辑；不采信输入中的预计时长。"
@@ -203,14 +275,20 @@
       "arguments": {
         "script": {
           "version": 1,
-          "title": "字幕功能介绍",
+          "title": "拍口播时，你想让观众记住哪句话？",
           "scenes": [
             {
               "id": "S01",
-              "visual": "产品画面",
+              "visual": "创作者面对镜头，停下手中的拍摄准备，切到手写重点的纸卡。",
               "voiceover": "效率提升 80%",
-              "subtitle": "支持字幕",
-              "estimated_duration_seconds": 1.5,
+              "subtitle": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+              "claims": []
+            },
+            {
+              "id": "S02",
+              "visual": "切到写着产品事实的文字卡，再回到创作者准备的内容提纲。",
+              "voiceover": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
+              "subtitle": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
               "claims": [
                 {
                   "text": "支持字幕",
@@ -218,9 +296,15 @@
                   "fact_id": "P01-F1"
                 }
               ]
+            },
+            {
+              "id": "S03",
+              "visual": "回到口播画面，创作者指向自己的提纲，最后停在评论区提问的文字卡。",
+              "voiceover": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "subtitle": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+              "claims": []
             }
-          ],
-          "estimated_total_duration_seconds": 1.5
+          ]
         }
       },
       "output": {
@@ -228,26 +312,32 @@
         "tool": "check_rules",
         "result": {
           "script_version": 1,
-          "script_hash": "4cca95558aad040431516690ee9a52f0279bc0de87ee5e48e07d0e0702f89e98",
+          "script_hash": "58f7b3b9d0e019774ac0c281656008972cb548da5222055788bdc56cc071da2a",
           "facts": "failed",
           "brand": "failed",
+          "lexical": "failed",
+          "semantic": {
+            "status": "not_configured",
+            "claims": []
+          },
           "issues": [
             {
               "rule_id": "BR02",
               "location": "S01.voiceover",
               "text": "效率提升 80%",
-              "reason": "命中当前合成品牌规则禁止示例"
+              "reason": "命中当前品牌规则禁止示例"
             },
             {
               "rule_id": "BR01",
               "location": "S01.voiceover",
               "text": "效率提升 80%",
-              "reason": "不在受控事实或中性表达清单内，需改写或补充资料；不代表已证明为假"
+              "reason": "未被引用事实覆盖的文字含能力、效果、数字或宣传信号，需证据或改写"
             }
           ],
-          "mode": "controlled_language",
+          "mode": "claims_risk_signals_and_semantic_review",
           "limitations": [
-            "只核验受控事实原文与中性表达清单；清单外表达保守拒绝，不提供通用语义事实判断。"
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。",
+            "语义复核依赖判定模型，可能误判；未配置判定模型时只有词法层，Agent 不允许完成。"
           ]
         }
       }

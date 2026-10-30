@@ -1,34 +1,24 @@
-# 真实模型验收记录
+# 真实模型验收入口
 
-模型：gpt-5.4-mini-2026-03-17；服务：用户配置的官方 API；日期：2026-10-30。主目录五组均由真实模型决定动作，工具在本地实际执行。每组保存 input.json、output.json、trace.jsonl。
+normal、duration_revision、tool_failure已用最新语义复核版本独立重跑；旧的对应记录移至examples/history/pre-semantic-rerun。missing_info和no_material仍是此前历史记录，不宣称它们已接受本轮新版语义判定。
 
-| 目录 | 最终结果 | 工具调用数 |
-| --- | --- | --- |
-| normal | completed，1.5 秒 | 3 |
-| missing_info | needs_input，询问目标时长 | 0 |
-| no_material | insufficient_material | 1 |
-| tool_failure | tool_error，明确未完成 | 1 |
-| duration_revision | completed，4.5 秒 → 1.5 秒，版本 1 → 2 | 5 |
+| 目录 | 最新实际结果 | 最终checks.semantic | 工具调用数 |
+| --- | --- | --- | --- |
+| normal | completed，24.1秒、4镜 | passed，真实判定 | 3 |
+| duration_revision | 36.2秒 → 模型压缩第二版为20.1秒、4镜 | passed，真实判定 | 5 |
+| tool_failure | 临时检索错误 → 重试 → completed，22.8秒、4镜 | passed，真实判定 | 4 |
+| missing_info | 历史：询问目标时长 | 未重跑，不补写passed | 1 |
+| no_material | 历史：两次查询无素材后请求补充 | 未重跑，不补写passed | 2 |
 
-超时 Trace：检索 → 超时估算 → 第一版规则检查 → 尝试结束被门禁拒绝 → 模型提交第二版并估时 → 第二版规则检查 → 完成。没有预填修正版，也没有伪造估时。工具失败是测试注入；模型选择结束，并非成功恢复。
+三条新记录的生成模型和判定模型均为gpt-5.4-mini-2026-03-17，Responses、medium。它们是独立执行，不复用同一次正常/超时记录；全程无GUARD_REJECTED。超时用例输入仍为普通30秒、简洁实用，无指定首稿分镜或修正动作。首稿和最终稿的真实语义判定均通过，模型根据时长反馈自行压缩。
 
-复现需要自行配置 .env（不入库），在仓库根目录执行：
+每组包含input.json、output.json、trace.jsonl、api-audit.json、runtime-manifest.json。审计核对实际HTTP语义返回、最终句段覆盖、声明与来源、版本/哈希、最终估时及输出，见[详细重跑说明](semantic-rerun/README.md)。所有新尝试都保留在semantic-rerun，时长4次尝试中只有attempt-03出现超时，不将其余尝试冒充超时修正。
+
+离线复核，不调用模型：
 
 ```sh
-python3 -m src.cli --input examples/live/normal/input.json --model live --env-file .env --output-dir runs/live-normal
-python3 -m src.cli --input examples/live/missing_info/input.json --model live --env-file .env --output-dir runs/live-missing
-python3 -m src.cli --input examples/live/no_material/input.json --model live --env-file .env --output-dir runs/live-no-material
-python3 -m src.cli --input examples/live/tool_failure/input.json --model live --env-file .env --fail-tool search_materials --output-dir runs/live-tool-failure
-python3 -m src.cli --input examples/live/duration_revision/input.json --model live --env-file .env --output-dir runs/live-revision
+python3 -m examples.live.verify_semantic_runs
+python3 -m examples.live.verify_results
 ```
 
-模型非确定性，新运行动作与结果可能不同。未完成任务返回退出码 1，不是 CLI 崩溃。无网络复核已有结果：`python3 -m examples.live.verify_results`。
-
-## 保留的失败尝试
-
-- attempts/normal_initial：误判一条事实无法生成脚本。
-- attempts/*_before_strict：工具说明与参数约束收紧前的记录；包含错误索要资料、清单外表达，以及超时路径协议失败。
-- attempts/duration_first_strict：参数收紧后仍过早宣布无法满足。
-- attempts/duration_before_finish_guard：提示要求修正后，模型仍直接结束；随后增加程序结束门禁，最终主记录实际改稿成功。
-
-历史尝试对应不同开发阶段，不保证用当前代码复现相同结果。当前评估不把历史失败删除后声称一次通过，也不将用例数量当作统计成功率。
+第一条严格审计三个新场景及全部新尝试，第二条核对正式入口与对应证据副本，并保留两个历史场景的有限验证。真实语义passed不等于模型不会误判；36句真实判定评估尚未额外执行，不能把端到端三例当作留出集准确率。

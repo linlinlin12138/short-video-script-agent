@@ -5,8 +5,10 @@ from pathlib import Path
 from unittest.mock import patch
 
 from src.agent import Agent, definitions
+from src.contracts import validate_finish_arguments
 from src.models import HTTPModel, MockModel, ModelError, action
 from src.tools import ToolSet
+from src.verifier import OfflineJudge
 
 
 REQUEST = {"topic": "介绍字幕功能", "audience": "创作者", "platform": "抖音", "target_duration_seconds": 30, "style": "简洁"}
@@ -27,7 +29,9 @@ class AgentTests(unittest.TestCase):
         result, trace = Agent(MockModel()).run(REQUEST)
         self.assertEqual(result["status"], "completed")
         self.assertEqual(result["tool_calls_used"], 3)
-        self.assertEqual(result["script"]["estimated_total_duration_seconds"], 1.5)
+        self.assertGreaterEqual(result["script"]["estimated_total_duration_seconds"], 20)
+        self.assertLessEqual(result["script"]["estimated_total_duration_seconds"], 30)
+        self.assertEqual(result["source_ids"], ["P01"])
         self.assertEqual([r["action"] for r in trace if "action" in r], ["search_materials", "estimate_duration", "check_rules", "finish"])
 
     def test_missing_input_and_no_material(self):
@@ -53,7 +57,7 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(result["status"], "constraints_unsatisfied")
 
     def test_tool_failure_observed_then_recovered(self):
-        result, trace = Agent(MockModel(), ToolSet(failures={"search_materials": 1})).run(REQUEST)
+        result, trace = Agent(MockModel(), ToolSet(failures={"search_materials": 1}, judge=OfflineJudge())).run(REQUEST)
         self.assertEqual(result["status"], "completed")
         self.assertFalse(trace[1]["observation"]["ok"])
         self.assertEqual(result["tool_calls_used"], 4)
@@ -76,7 +80,7 @@ class AgentTests(unittest.TestCase):
         actions = [{key: row[key] for key in ("action", "arguments", "reason")} for row in decisions]
         modified = copy.deepcopy(actions[2])
         modified["arguments"]["script"]["version"] = 2
-        modified["arguments"]["script"]["scenes"][0]["subtitle"] = ""
+        modified["arguments"]["script"]["scenes"][0]["subtitle"] = "看看你的内容提纲。"
         actions.insert(3, modified)
         result, rows = Agent(SequenceModel(actions), max_rounds=5).run(REQUEST)
         self.assertNotEqual(result["status"], "completed")
@@ -103,6 +107,18 @@ class AgentTests(unittest.TestCase):
         with patch.object(model, "choose", side_effect=ModelError("测试服务错误")):
             result, _ = Agent(model).run(REQUEST)
         self.assertEqual(result["status"], "tool_error")
+
+    def test_questions_must_be_natural_language_and_cover_missing_field(self):
+        for questions in (["target_duration_seconds"], ["请提供产品名称？"], []):
+            with self.subTest(questions=questions), self.assertRaises(ValueError):
+                validate_finish_arguments(
+                    {"status": "needs_input", "message": "请补充", "questions": questions},
+                    ["target_duration_seconds"],
+                )
+        validate_finish_arguments(
+            {"status": "needs_input", "message": "请补充", "questions": ["请问目标时长是多少秒？"]},
+            ["target_duration_seconds"],
+        )
 
     def test_no_search_cannot_complete(self):
         _, trace = Agent(MockModel()).run(REQUEST)
@@ -144,7 +160,7 @@ class AgentTests(unittest.TestCase):
         }}]}}]}
         import io
         with patch.dict("os.environ", {"OPENAI_API_KEY": "test-secret", "OPENAI_MODEL": "test-model", "OPENAI_BASE_URL": "https://example.test/v1"}), patch("urllib.request.urlopen", return_value=io.BytesIO(json.dumps(payload).encode())) as mocked:
-            selected = HTTPModel().choose({"system": "test", "input": REQUEST}, [], definitions())
+            selected = HTTPModel(api="chat").choose({"system": "test", "input": REQUEST}, [], definitions())
             self.assertEqual(selected["action"], "search_materials")
             body = json.loads(mocked.call_args.args[0].data)
             self.assertFalse(body["parallel_tool_calls"])
@@ -163,6 +179,31 @@ class AgentTests(unittest.TestCase):
                 for child in value:
                     inspect(child)
         inspect(definitions())
+
+    def test_responses_adapter_replays_provider_items_and_actual_observation(self):
+        first = {"output": [
+            {"type": "reasoning", "id": "r1", "encrypted_content": "opaque-test-only", "summary": []},
+            {"type": "function_call", "name": "search_materials", "call_id": "original-call",
+             "arguments": json.dumps({"reason": "检索", "arguments": {"query": "字幕", "limit": 5}})},
+        ]}
+        second = {"output": [{
+            "type": "function_call", "name": "finish", "call_id": "finish-call",
+            "arguments": json.dumps({"reason": "无资料", "arguments": {
+                "status": "insufficient_material", "message": "无资料", "questions": []}}),
+        }]}
+        context = {"system": "test", "input": REQUEST}
+        with patch.dict("os.environ", {"OPENAI_API_KEY": "test", "OPENAI_MODEL": "test"}):
+            model = HTTPModel(reasoning_effort="low")
+            with patch.object(model, "_post", side_effect=[first, second]) as mocked:
+                chosen = model.choose(context, [], definitions())
+                observation = {"ok": True, "result": {"matches": []}}
+                model.choose(context, [{"decision": chosen, "observation": observation}], definitions())
+                body = mocked.call_args.args[1]
+                self.assertFalse(body["store"])
+                self.assertEqual(body["reasoning"], {"effort": "low"})
+                self.assertIn(first["output"][0], body["input"])
+                self.assertEqual(body["input"][-1]["call_id"], "original-call")
+                self.assertEqual(json.loads(body["input"][-1]["output"]), observation)
 
 
 if __name__ == "__main__":

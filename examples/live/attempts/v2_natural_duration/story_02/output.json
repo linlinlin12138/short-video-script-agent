@@ -1,0 +1,72 @@
+{
+  "status": "constraints_unsatisfied",
+  "message": "第4版草稿已通过规则检查，但实际预计时长18.9秒，低于30秒目标区间下限20秒；需要继续加长内容后重新测量。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 4,
+    "title": "下班路上，我终于把字幕这件事想明白了",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "傍晚街头，创作者拿着手机停下脚步，先看镜头再看手里的纸卡。",
+        "voiceover": "我以前拍口播，总觉得差一口气。",
+        "subtitle": "我以前拍口播，总觉得差一口气。",
+        "claims": [],
+        "estimated_duration_seconds": 3.8
+      },
+      {
+        "id": "s2",
+        "visual": "桌面上摊开分镜纸卡，手写着‘字幕’两个字，创作者把这张卡举到镜头前。",
+        "voiceover": "后来我才明白，支持字幕，能把我想说的话摆出来。",
+        "subtitle": "支持字幕，能把想说的话摆出来。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 5.5
+      },
+      {
+        "id": "s3",
+        "visual": "创作者在纸卡上写下三行提纲，随后对着镜头点头。",
+        "voiceover": "所以我会先写提纲，再录一遍，拍起来更顺。",
+        "subtitle": "先写提纲，再录一遍。",
+        "claims": [],
+        "estimated_duration_seconds": 4.8
+      },
+      {
+        "id": "s4",
+        "visual": "镜头拉近到纸卡上的提问，创作者微笑示意观众留言。",
+        "voiceover": "你拍口播时，最卡的是哪一步？评论区聊聊。",
+        "subtitle": "你最卡的是哪一步？",
+        "claims": [],
+        "estimated_duration_seconds": 4.8
+      }
+    ],
+    "estimated_total_duration_seconds": 18.9
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 4,
+    "duration": "failed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": [
+      {
+        "rule_id": "DURATION",
+        "location": "script",
+        "text": "18.9",
+        "reason": "预计时长不在目标三分之二至目标的区间内：too_short"
+      }
+    ]
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 7
+}

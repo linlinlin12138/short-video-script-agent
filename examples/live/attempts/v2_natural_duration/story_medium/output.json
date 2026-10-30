@@ -1,0 +1,73 @@
+{
+  "status": "completed",
+  "message": "已完成脚本：版本3，预计总时长26.3秒，满足30秒目标的三分之二至30秒区间，且产品事实“支持字幕”已按素材逐字引用并通过规则检查。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 3,
+    "title": "拍视频时，我先解决字幕这件事",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "创作者坐在桌前，对着手机镜头叹气，旁边放着写着“字幕”的手写卡片。",
+        "voiceover": "每次拍完，我最怕的不是没灵感，是回头补字幕，边看边改特别乱。",
+        "subtitle": "每次拍完，我最怕的不是没灵感，是回头补字幕，边看边改特别乱。",
+        "claims": [],
+        "estimated_duration_seconds": 7.0
+      },
+      {
+        "id": "S2",
+        "visual": "创作者把手写卡片举到镜头前，卡片上写着“支持字幕”。",
+        "voiceover": "这次我先试试这个功能：支持字幕。",
+        "subtitle": "这次我先试试这个功能：支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 4.0
+      },
+      {
+        "id": "S3",
+        "visual": "桌面俯拍，笔记本上写着分镜提纲，创作者在旁边口播排练。",
+        "voiceover": "我先把提纲摆好，再对着镜头一条条说清楚。",
+        "subtitle": "我先把提纲摆好，再对着镜头一条条说清楚。",
+        "claims": [],
+        "estimated_duration_seconds": 5.0
+      },
+      {
+        "id": "S4",
+        "visual": "创作者拿着提纲卡，边说边比划，桌上有记号笔和便签纸。",
+        "voiceover": "这样拍的时候，注意力就放在表达上，而不是临时找词。",
+        "subtitle": "这样拍的时候，注意力就放在表达上，而不是临时找词。",
+        "claims": [],
+        "estimated_duration_seconds": 6.0
+      },
+      {
+        "id": "S5",
+        "visual": "创作者对镜头微笑，手持写有“你会先写提纲吗？”的卡片。",
+        "voiceover": "你做视频时，会先写提纲，还是先开拍？",
+        "subtitle": "你做视频时，会先写提纲，还是先开拍？",
+        "claims": [],
+        "estimated_duration_seconds": 4.3
+      }
+    ],
+    "estimated_total_duration_seconds": 26.3
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 3,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 5
+}

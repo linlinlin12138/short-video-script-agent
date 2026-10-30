@@ -1,0 +1,365 @@
+{
+  "judge": null,
+  "rules_version": "2.2",
+  "note": "lexical 为词法层单独判断（含风险信号）；semantic 为判定模型；final 为 check_rules 的实际结论：配置判定模型后风险信号只作提示。flagged_elsewhere 表示该句被放行但同一脚本其他位置被拦截，对 no_claim/supported 算误拦。",
+  "summary": {
+    "lexical": {
+      "dev/unsupported": {
+        "expected": "flagged",
+        "correct": 10,
+        "total": 10,
+        "errors": 0
+      },
+      "dev/no_claim": {
+        "expected": "passed",
+        "correct": 6,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/unsupported": {
+        "expected": "flagged",
+        "correct": 1,
+        "total": 12,
+        "errors": 0
+      },
+      "heldout/no_claim": {
+        "expected": "passed",
+        "correct": 1,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/supported": {
+        "expected": "passed",
+        "correct": 2,
+        "total": 2,
+        "errors": 0
+      }
+    }
+  },
+  "records": [
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "用它做字幕，剪辑时间直接减半",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "字幕会跟着语音同步出现",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "字幕样式有几十种可选",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "它能帮你把字幕对齐时间轴",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "字幕可以批量修改",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "字幕不再需要手动打",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "做出爆款视频",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "支持字幕，还能识别方言",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "不支持字幕",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "打开产品界面点击字幕按钮",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "no_claim",
+      "text": "你可以先写提纲，再开拍。",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "no_claim",
+      "text": "你会先写文案，还是先开拍？",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "no_claim",
+      "text": "你能先说清楚这一段想表达什么吗？",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "no_claim",
+      "text": "我会先把提纲摆好，再面对镜头口播。",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "no_claim",
+      "text": "如果暂时没有灵感，可以停下来想想开场。",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "dev",
+      "label": "no_claim",
+      "text": "拍完之后，不妨问问观众喜欢哪个镜头。",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "加完字幕，视频看起来专业多了",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "观众静音刷也能看懂",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "字幕颜色随便换",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "中英双语字幕一步到位",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "导入视频就能出字幕",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "剪辑新手也能上手",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "连错别字都帮你改好了",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "再也不用熬夜对字幕",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "完播率明显变高",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "字幕位置随你拖动",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "字体大小随意调整",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "unsupported",
+      "text": "让你的视频播放量蹭蹭涨",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "no_claim",
+      "text": "我习惯先把文案同步到备忘录",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "no_claim",
+      "text": "封面样式我一般最后再定",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "no_claim",
+      "text": "我会套一个固定的开场模板",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "no_claim",
+      "text": "这条视频我拍了几十遍",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "no_claim",
+      "text": "手动打光比自然光更稳",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "no_claim",
+      "text": "两种开场你更喜欢哪种？",
+      "lexical": "flagged",
+      "semantic": "not_run",
+      "final": "flagged",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "supported",
+      "text": "这次只讲一个事实：支持字幕。",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    },
+    {
+      "split": "heldout",
+      "label": "supported",
+      "text": "先说结论，它支持字幕。",
+      "lexical": "passed",
+      "semantic": "not_run",
+      "final": "passed",
+      "semantic_claims": []
+    }
+  ]
+}

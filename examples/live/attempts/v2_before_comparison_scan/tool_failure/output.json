@@ -1,0 +1,57 @@
+{
+  "status": "completed",
+  "message": "已生成可直接使用的抖音脚本，当前版本预计时长26.1秒，满足30秒目标的区间要求。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 2,
+    "title": "字幕功能到底该怎么讲",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者坐在桌前，手边放着手机、脚本纸和一张写着“字幕”二字的卡片。",
+        "voiceover": "拍短视频时，字幕常常是最容易被忽略、却最影响节奏的部分。",
+        "subtitle": "字幕怎么处理更顺？",
+        "claims": [],
+        "estimated_duration_seconds": 6.8
+      },
+      {
+        "id": "s2",
+        "visual": "创作者举起写着“支持字幕”的卡片，再把手写提纲放到镜头前。",
+        "voiceover": "这款产品支持字幕。剩下的内容，我建议你先把口播节奏和分段想清楚。",
+        "subtitle": "这款产品支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 7.8
+      },
+      {
+        "id": "s3",
+        "visual": "创作者对着三段提纲示意收尾，手指停在“先拍，再改”的提示牌上。",
+        "voiceover": "如果你也是短视频创作者，可以先从结构开始，再回头检查字幕和表达是否一致。你最常卡在开场还是收尾？",
+        "subtitle": "你最常卡在哪一步？",
+        "claims": [],
+        "estimated_duration_seconds": 11.5
+      }
+    ],
+    "estimated_total_duration_seconds": 26.1
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 2,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 6
+}

@@ -1,19 +1,26 @@
 test_content_hash_changes_even_without_version_change (test_tools.ToolTests) ... ok
 test_corrupt_data_returns_error (test_tools.ToolTests) ... ok
+test_creative_narrative_and_concrete_visuals_do_not_need_claims (test_tools.ToolTests) ... ok
+test_creator_advice_with_modal_verbs_remains_allowed (test_tools.ToolTests) ... ok
 test_duration_ignores_draft_estimates_and_simultaneous_subtitle (test_tools.ToolTests) ... ok
 test_fabricated_claims_in_all_fields (test_tools.ToolTests) ... ok
 test_fault_injection_and_recovery (test_tools.ToolTests) ... ok
 test_invalid_parameters_and_duplicate_scene_ids (test_tools.ToolTests) ... ok
 test_missing_data_returns_error (test_tools.ToolTests) ... ok
+test_negated_claim_is_not_supported_by_affirmative_fact (test_tools.ToolTests) ... ok
 test_overlong_then_shorter_actual_estimate (test_tools.ToolTests) ... ok
+test_reference_in_other_scene_does_not_cover_this_scene (test_tools.ToolTests) ... ok
 test_reference_integrity (test_tools.ToolTests) ... ok
+test_reported_ten_fabricated_claims_are_rejected_with_valid_reference (test_tools.ToolTests) ... ok
 test_rounding_and_sum (test_tools.ToolTests) ... ok
 test_search_hit_and_miss (test_tools.ToolTests) ... ok
 test_supported_fact_passes (test_tools.ToolTests) ... ok
 test_title_fact_requires_reference (test_tools.ToolTests) ... ok
+test_too_short_script_fails_even_if_below_upper_limit (test_tools.ToolTests) ... ok
 test_unknown_paraphrase_fails_closed (test_tools.ToolTests) ... ok
+test_valid_reference_cannot_cover_extra_capabilities_or_metrics (test_tools.ToolTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 0.011s
+Ran 21 tests in 0.029s
 
 OK

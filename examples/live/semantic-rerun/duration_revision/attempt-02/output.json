@@ -1,0 +1,75 @@
+{
+  "status": "completed",
+  "message": "草稿已完成：产品事实引用通过，预计总时长25.6秒，落在30秒目标的20–30秒区间内。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 1,
+    "title": "字幕别抢戏",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者对着镜头停顿，手里拿着写有“字幕乱了”的便签，桌面只放手机和一支笔。",
+        "voiceover": "拍完视频，最怕字幕一乱，整段节奏就散了。",
+        "subtitle": "拍完视频，最怕字幕一乱，整段节奏就散了。",
+        "claims": [],
+        "estimated_duration_seconds": 4.8
+      },
+      {
+        "id": "s2",
+        "visual": "手写卡片特写，卡片上写着“支持字幕”，旁边摆着手机和便签。",
+        "voiceover": "我会先找一个支持字幕的工具，把字幕这件事单独拎出来。",
+        "subtitle": "我会先找一个支持字幕的工具。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 6.5
+      },
+      {
+        "id": "s3",
+        "visual": "桌上摊开提纲，人物用笔在纸上划重点，镜头切到口播顺序。",
+        "voiceover": "然后把口播提纲写清楚，画面跟着内容走。",
+        "subtitle": "把口播提纲写清楚，画面跟着内容走。",
+        "claims": [],
+        "estimated_duration_seconds": 4.8
+      },
+      {
+        "id": "s4",
+        "visual": "人物把写着镜头顺序的便签贴到桌边，抬头继续录制。",
+        "voiceover": "如果你也常卡在字幕上，先把这一步单独列出来。",
+        "subtitle": "如果你也常卡在字幕上，先把这一步单独列出来。",
+        "claims": [],
+        "estimated_duration_seconds": 5.5
+      },
+      {
+        "id": "s5",
+        "visual": "创作者看向镜头，桌面整齐，手边留着提纲和便签。",
+        "voiceover": "你平时会先改字幕，还是先改内容？",
+        "subtitle": "你平时会先改字幕，还是先改内容？",
+        "claims": [],
+        "estimated_duration_seconds": 4.0
+      }
+    ],
+    "estimated_total_duration_seconds": 25.6
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 1,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "semantic": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。"
+  ],
+  "tool_calls_used": 3
+}

@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "message": "已完成脚本，当前版本时长与规则检查均通过，可直接使用。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 3,
+    "title": "拍口播时，我先把桌面理顺",
+    "scenes": [
+      {
+        "id": "scene1",
+        "visual": "创作者把纸笔放到桌角，先把桌面整理干净，再把手机支架摆正。",
+        "voiceover": "拍之前，我先把桌面理顺。",
+        "subtitle": "拍之前，我先把桌面理顺。",
+        "claims": [],
+        "estimated_duration_seconds": 3.0
+      },
+      {
+        "id": "scene2",
+        "visual": "桌上摊着草稿纸，旁边放着笔，纸上写着“这句话会不会太长？”",
+        "voiceover": "因为一句话太长，观众看一眼就可能走神；我会先把表达理顺，再开始拍。",
+        "subtitle": "因为一句话太长，观众看一眼就可能走神；我会先把表达理顺，再开始拍。",
+        "claims": [],
+        "estimated_duration_seconds": 7.8
+      },
+      {
+        "id": "scene3",
+        "visual": "镜头推进一张手写卡片，卡片上只有两个字：字幕。",
+        "voiceover": "这次我只看一个功能点：支持字幕。",
+        "subtitle": "这次我只看一个功能点：支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 4.0
+      },
+      {
+        "id": "scene4",
+        "visual": "创作者把卡片放回桌面，对着镜头笑一下，顺手指向评论区。",
+        "voiceover": "如果你做口播，通常先改文案，还是先直接开拍？评论区告诉我。",
+        "subtitle": "如果你做口播，通常先改文案，还是先直接开拍？评论区告诉我。",
+        "claims": [],
+        "estimated_duration_seconds": 6.8
+      }
+    ],
+    "estimated_total_duration_seconds": 21.6
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 3,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 8
+}

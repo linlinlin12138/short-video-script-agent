@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "message": "已完成可直接使用的抖音脚本，当前版本满足时长区间且通过事实与品牌检查。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 2,
+    "title": "字幕功能怎么讲清楚",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "创作者坐在桌前，手里拿着脚本卡，抬头对镜头说“每次做视频，字幕到底要不要加？”",
+        "voiceover": "每次剪短视频，我都会先想一句：字幕到底要不要加？",
+        "subtitle": "字幕到底要不要加？",
+        "claims": [],
+        "estimated_duration_seconds": 5.8
+      },
+      {
+        "id": "S2",
+        "visual": "桌面上放着写有“字幕功能”的纸卡，创作者用笔在旁边标注重点。",
+        "voiceover": "我今天只说一个点：这个产品支持字幕。",
+        "subtitle": "它支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 4.5
+      },
+      {
+        "id": "S3",
+        "visual": "创作者把纸卡翻到“开头一句话、核心信息、结尾互动”三条提纲，继续口播。",
+        "voiceover": "如果你拍口播，记得把开头、核心信息和收尾先写顺。",
+        "subtitle": "先把内容写顺",
+        "claims": [],
+        "estimated_duration_seconds": 5.8
+      },
+      {
+        "id": "S4",
+        "visual": "创作者对镜头做收尾手势，镜头切到手写卡片“你最常卡在哪一步？”",
+        "voiceover": "你平时做视频，最常卡在字幕、脚本，还是开场？",
+        "subtitle": "你最常卡在哪一步？",
+        "claims": [],
+        "estimated_duration_seconds": 5.0
+      }
+    ],
+    "estimated_total_duration_seconds": 21.1
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 2,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 5
+}

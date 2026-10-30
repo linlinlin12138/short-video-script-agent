@@ -4,19 +4,13 @@ import json
 from pathlib import Path
 
 from src.tools import ToolSet
+from src.models import mock_script
 
 
 def main():
     tools = ToolSet()
-    script = {
-        "version": 1, "title": "字幕功能介绍",
-        "scenes": [{
-            "id": "S01", "visual": "产品画面", "voiceover": "支持字幕",
-            "subtitle": "支持字幕", "estimated_duration_seconds": 1.5,
-            "claims": [{"text": "支持字幕", "source_id": "P01", "fact_id": "P01-F1"}],
-        }],
-        "estimated_total_duration_seconds": 1.5,
-    }
+    material = tools.search_materials("字幕")["matches"][0]
+    script = mock_script(material, material["facts"][0], 30)
     calls = [
         ("search_hit", "search_materials", {"query": "介绍字幕功能"}),
         ("search_miss", "search_materials", {"query": "视频降噪"}),

@@ -1,0 +1,84 @@
+{
+  "scope": "bounded_development_sampling_not_success_rate",
+  "attempts": [
+    {
+      "attempt": "01",
+      "recorded_status": "completed",
+      "reasoning_effort": "low",
+      "style": "简洁、实用",
+      "estimates": [
+        18.6,
+        29.5
+      ],
+      "guard_rejections": 1
+    },
+    {
+      "attempt": "02",
+      "recorded_status": "completed",
+      "reasoning_effort": "low",
+      "style": "简洁、实用",
+      "estimates": [
+        20.0
+      ],
+      "guard_rejections": 1
+    },
+    {
+      "attempt": "03",
+      "recorded_status": "completed",
+      "reasoning_effort": "low",
+      "style": "简洁、实用",
+      "estimates": [
+        28.3,
+        27.8
+      ],
+      "guard_rejections": 0
+    },
+    {
+      "attempt": "plain_medium",
+      "recorded_status": "completed",
+      "reasoning_effort": "medium",
+      "style": "简洁、实用",
+      "estimates": [
+        15.3,
+        30.4,
+        28.6
+      ],
+      "guard_rejections": 0
+    },
+    {
+      "attempt": "story_01",
+      "recorded_status": "constraints_unsatisfied",
+      "reasoning_effort": "low",
+      "style": "故事化、亲切",
+      "estimates": [
+        18.8,
+        37.9
+      ],
+      "guard_rejections": 0
+    },
+    {
+      "attempt": "story_02",
+      "recorded_status": "constraints_unsatisfied",
+      "reasoning_effort": "low",
+      "style": "故事化、亲切",
+      "estimates": [
+        16.9,
+        34.1,
+        18.9
+      ],
+      "guard_rejections": 1
+    },
+    {
+      "attempt": "story_medium",
+      "recorded_status": "completed",
+      "reasoning_effort": "medium",
+      "style": "故事化、亲切",
+      "estimates": [
+        16.4,
+        26.3
+      ],
+      "guard_rejections": 0
+    }
+  ],
+  "selected_for_normal_and_duration": "plain_medium"
+}

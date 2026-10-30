@@ -1,0 +1,57 @@
+{
+  "status": "completed",
+  "message": "已完成可直接使用的30秒左右抖音脚本：版本2通过事实与品牌检查，预计总时长20.0秒，满足目标30秒的三分之二到30秒区间。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 2,
+    "title": "字幕功能的基础说法",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "创作者坐在桌前，手里拿着一张写着“字幕”的手卡，镜头快速推进到手卡特写。",
+        "voiceover": "做短视频，字幕这件事经常被问到。我先把最基础的一点说清楚。",
+        "subtitle": "先把最基础的一点说清楚",
+        "claims": [],
+        "estimated_duration_seconds": 7.0
+      },
+      {
+        "id": "S2",
+        "visual": "创作者对着镜头举起手卡，停顿后把“支持字幕”四个字写在白纸上。",
+        "voiceover": "这个产品支持字幕。",
+        "subtitle": "支持字幕",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 2.5
+      },
+      {
+        "id": "S3",
+        "visual": "创作者把纸卡放回桌面，镜头切回正面口播，旁边留白给收尾停顿。",
+        "voiceover": "如果你在意成片里的文字呈现，可以先从这一点开始判断。想看我继续拆别的功能，评论区告诉我。",
+        "subtitle": "想看我继续拆别的功能，评论区告诉我",
+        "claims": [],
+        "estimated_duration_seconds": 10.5
+      }
+    ],
+    "estimated_total_duration_seconds": 20.0
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 2,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 5
+}

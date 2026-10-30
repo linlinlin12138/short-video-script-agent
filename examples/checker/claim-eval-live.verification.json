@@ -1,0 +1,158 @@
+{
+  "verified": true,
+  "method": "Offline consistency checks of recorded live outputs; no new model calls and no verdict substitution.",
+  "record_count": 36,
+  "live_success_count": 36,
+  "tool_errors": 0,
+  "dataset_sha256": "963fac853ffc66efd83668f781219525980d5ba3bd7528e57d060cc95ab80345",
+  "report_sha256": "cd05543506003d9737ef03cd073dcd5439b8299ad22d8bd865e43ce4e4042072",
+  "trace_sha256": "42ff95336b85ebee873bbbe2ddd19b9364b95f005c35cba27d7b76703a4d15c6",
+  "checks": [
+    "dataset and trace order match",
+    "all scripts exactly match frozen inputs",
+    "all verdicts judge_mode=live and model matches",
+    "all 4 segments reviewed per script",
+    "recomputed lexical/semantic/final outcomes match report",
+    "recomputed split metrics match report"
+  ],
+  "semantic_failures": [
+    {
+      "split": "dev",
+      "label": "unsupported",
+      "text": "做出爆款视频",
+      "lexical": "flagged",
+      "semantic": "flagged_elsewhere",
+      "final": "flagged_elsewhere",
+      "semantic_claims": [
+        {
+          "location": "title",
+          "segment": "字幕功能介绍",
+          "claim": "字幕功能介绍",
+          "verdict": "unsupported",
+          "fact_ids": [],
+          "reason": "这只是标题表述，未被事实直接完整表达为产品支持字幕功能。"
+        },
+        {
+          "location": "S01.subtitle",
+          "segment": "支持字幕",
+          "claim": "支持字幕",
+          "verdict": "supported",
+          "fact_ids": [
+            "P01-F1"
+          ],
+          "reason": "事实原文直接写明“支持字幕”。"
+        }
+      ]
+    }
+  ],
+  "issues_outside_target_sentence": [
+    {
+      "index": 7,
+      "text": "做出爆款视频",
+      "issue": {
+        "rule_id": "SEM01",
+        "location": "title",
+        "text": "字幕功能介绍",
+        "reason": "语义复核：产品声明缺少素材支持——这只是标题表述，未被事实直接完整表达为产品支持字幕功能。"
+      }
+    }
+  ],
+  "summary": {
+    "lexical": {
+      "dev/unsupported": {
+        "expected": "flagged",
+        "correct": 10,
+        "total": 10,
+        "errors": 0
+      },
+      "dev/no_claim": {
+        "expected": "passed",
+        "correct": 6,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/unsupported": {
+        "expected": "flagged",
+        "correct": 1,
+        "total": 12,
+        "errors": 0
+      },
+      "heldout/no_claim": {
+        "expected": "passed",
+        "correct": 1,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/supported": {
+        "expected": "passed",
+        "correct": 2,
+        "total": 2,
+        "errors": 0
+      }
+    },
+    "semantic": {
+      "dev/unsupported": {
+        "expected": "flagged",
+        "correct": 9,
+        "total": 10,
+        "errors": 0
+      },
+      "dev/no_claim": {
+        "expected": "passed",
+        "correct": 6,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/unsupported": {
+        "expected": "flagged",
+        "correct": 12,
+        "total": 12,
+        "errors": 0
+      },
+      "heldout/no_claim": {
+        "expected": "passed",
+        "correct": 6,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/supported": {
+        "expected": "passed",
+        "correct": 2,
+        "total": 2,
+        "errors": 0
+      }
+    },
+    "final": {
+      "dev/unsupported": {
+        "expected": "flagged",
+        "correct": 9,
+        "total": 10,
+        "errors": 0
+      },
+      "dev/no_claim": {
+        "expected": "passed",
+        "correct": 6,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/unsupported": {
+        "expected": "flagged",
+        "correct": 12,
+        "total": 12,
+        "errors": 0
+      },
+      "heldout/no_claim": {
+        "expected": "passed",
+        "correct": 6,
+        "total": 6,
+        "errors": 0
+      },
+      "heldout/supported": {
+        "expected": "passed",
+        "correct": 2,
+        "total": 2,
+        "errors": 0
+      }
+    }
+  }
+}

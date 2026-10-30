@@ -1,4 +1,3 @@
-Archive: only allowlisted project files, no .env/.git/runs.
 $ python3 -m venv .venv
 exit_code=0
 
@@ -18,7 +17,9 @@ test_new_version_invalidates_old_checks (test_agent.AgentTests) ... ok
 test_no_search_cannot_complete (test_agent.AgentTests) ... ok
 test_normal (test_agent.AgentTests) ... ok
 test_premature_finish_blocked (test_agent.AgentTests) ... ok
+test_questions_must_be_natural_language_and_cover_missing_field (test_agent.AgentTests) ... ok
 test_repairable_duration_cannot_be_declared_impossible_without_attempt (test_agent.AgentTests) ... ok
+test_responses_adapter_replays_provider_items_and_actual_observation (test_agent.AgentTests) ... ok
 test_same_version_content_change_rejected (test_agent.AgentTests) ... ok
 test_strict_tool_objects_have_no_optional_or_unknown_fields (test_agent.AgentTests) ... ok
 test_target_tampering_rejected (test_agent.AgentTests) ... ok
@@ -28,23 +29,34 @@ test_cli_persists_incomplete_task_and_returns_one (test_cli.CLITests) ... ok
 test_env_is_data_and_process_values_take_precedence (test_cli.CLITests) ... ok
 test_content_hash_changes_even_without_version_change (test_tools.ToolTests) ... ok
 test_corrupt_data_returns_error (test_tools.ToolTests) ... ok
+test_creative_narrative_and_concrete_visuals_do_not_need_claims (test_tools.ToolTests) ... ok
+test_creator_advice_with_modal_verbs_remains_allowed (test_tools.ToolTests) ... ok
 test_duration_ignores_draft_estimates_and_simultaneous_subtitle (test_tools.ToolTests) ... ok
 test_fabricated_claims_in_all_fields (test_tools.ToolTests) ... ok
 test_fault_injection_and_recovery (test_tools.ToolTests) ... ok
 test_invalid_parameters_and_duplicate_scene_ids (test_tools.ToolTests) ... ok
 test_missing_data_returns_error (test_tools.ToolTests) ... ok
+test_negated_claim_is_not_supported_by_affirmative_fact (test_tools.ToolTests) ... ok
 test_overlong_then_shorter_actual_estimate (test_tools.ToolTests) ... ok
+test_reference_in_other_scene_does_not_cover_this_scene (test_tools.ToolTests) ... ok
 test_reference_integrity (test_tools.ToolTests) ... ok
+test_reported_ten_fabricated_claims_are_rejected_with_valid_reference (test_tools.ToolTests) ... ok
 test_rounding_and_sum (test_tools.ToolTests) ... ok
 test_search_hit_and_miss (test_tools.ToolTests) ... ok
 test_supported_fact_passes (test_tools.ToolTests) ... ok
 test_title_fact_requires_reference (test_tools.ToolTests) ... ok
+test_too_short_script_fails_even_if_below_upper_limit (test_tools.ToolTests) ... ok
 test_unknown_paraphrase_fails_closed (test_tools.ToolTests) ... ok
+test_valid_reference_cannot_cover_extra_capabilities_or_metrics (test_tools.ToolTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 32 tests in 0.046s
+Ran 41 tests in 0.076s
 
 OK
+
+$ .venv/bin/python -m examples.checker.run_regression
+exit_code=0
+Recorded 16 actual local checks; all expectations met: True
 
 $ .venv/bin/python -m src.cli --input examples/inputs/normal.json --model mock --output-dir runs/normal
 exit_code=0
@@ -55,13 +67,21 @@ exit_code=0
   "questions": [],
   "script": {
     "version": 1,
-    "title": "字幕功能介绍",
+    "title": "拍口播时，你想让观众记住哪句话？",
     "scenes": [
       {
         "id": "S01",
-        "visual": "产品画面",
-        "voiceover": "支持字幕",
-        "subtitle": "支持字幕",
+        "visual": "创作者面对镜头，停下手中的拍摄准备，切到手写重点的纸卡。",
+        "voiceover": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+        "subtitle": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+        "claims": [],
+        "estimated_duration_seconds": 7.5
+      },
+      {
+        "id": "S02",
+        "visual": "切到写着产品事实的文字卡，再回到创作者准备的内容提纲。",
+        "voiceover": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
+        "subtitle": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
         "claims": [
           {
             "text": "支持字幕",
@@ -69,11 +89,22 @@ exit_code=0
             "fact_id": "P01-F1"
           }
         ],
-        "estimated_duration_seconds": 1.5
+        "estimated_duration_seconds": 7.5
+      },
+      {
+        "id": "S03",
+        "visual": "回到口播画面，创作者指向自己的提纲，最后停在评论区提问的文字卡。",
+        "voiceover": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+        "subtitle": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+        "claims": [],
+        "estimated_duration_seconds": 8.8
       }
     ],
-    "estimated_total_duration_seconds": 1.5
+    "estimated_total_duration_seconds": 23.8
   },
+  "source_ids": [
+    "P01"
+  ],
   "checks": {
     "script_version": 1,
     "duration": "passed",
@@ -82,7 +113,7 @@ exit_code=0
     "issues": []
   },
   "risks": [
-    "时长为启发式估算；事实检查仅覆盖受控表达。",
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。",
     "离线 Mock 仅验证流程，不证明真实模型决策效果。"
   ],
   "tool_calls_used": 3
@@ -97,13 +128,21 @@ exit_code=0
   "questions": [],
   "script": {
     "version": 2,
-    "title": "字幕功能介绍",
+    "title": "拍口播时，你想让观众记住哪句话？",
     "scenes": [
       {
         "id": "S01",
-        "visual": "产品画面",
-        "voiceover": "支持字幕",
-        "subtitle": "支持字幕",
+        "visual": "创作者面对镜头，停下手中的拍摄准备，切到手写重点的纸卡。",
+        "voiceover": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+        "subtitle": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+        "claims": [],
+        "estimated_duration_seconds": 7.5
+      },
+      {
+        "id": "S02",
+        "visual": "切到写着产品事实的文字卡，再回到创作者准备的内容提纲。",
+        "voiceover": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
+        "subtitle": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
         "claims": [
           {
             "text": "支持字幕",
@@ -111,11 +150,22 @@ exit_code=0
             "fact_id": "P01-F1"
           }
         ],
-        "estimated_duration_seconds": 1.5
+        "estimated_duration_seconds": 7.5
+      },
+      {
+        "id": "S03",
+        "visual": "回到口播画面，创作者指向自己的提纲，最后停在评论区提问的文字卡。",
+        "voiceover": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+        "subtitle": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+        "claims": [],
+        "estimated_duration_seconds": 8.8
       }
     ],
-    "estimated_total_duration_seconds": 1.5
+    "estimated_total_duration_seconds": 23.8
   },
+  "source_ids": [
+    "P01"
+  ],
   "checks": {
     "script_version": 2,
     "duration": "passed",
@@ -124,7 +174,7 @@ exit_code=0
     "issues": []
   },
   "risks": [
-    "时长为启发式估算；事实检查仅覆盖受控表达。",
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。",
     "离线 Mock 仅验证流程，不证明真实模型决策效果。"
   ],
   "tool_calls_used": 4
@@ -134,4 +184,4 @@ $ .venv/bin/python -m examples.live.verify_results
 exit_code=0
 Verified 5 saved live cases; no network or model calls made.
 
-PASS: clean extracted copy, fresh venv, offline installation/tests/CLI, saved live-result verification; no model calls.
+PASS: rules 2.2; 41 tests; 10 fabricated claims blocked and 6 narrative controls passed; offline CLI and saved live verification passed in a fresh venv. No model calls.

@@ -7,6 +7,8 @@ import re
 from decimal import Decimal, ROUND_CEILING
 from pathlib import Path
 
+from ..verifier import JudgeError, review
+
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -69,8 +71,10 @@ def compact(text):
 
 
 class ToolSet:
-    def __init__(self, data_dir=None, failures=None):
+    def __init__(self, data_dir=None, failures=None, judge=None):
         self.data_dir = Path(data_dir) if data_dir else ROOT / "data"
+        # Semantic claim judge used by check_rules; None means the layer is not configured.
+        self.judge = judge
         # Test-only fault injection: remaining failures for each tool.
         self.failures = dict(failures or {})
 
@@ -92,6 +96,9 @@ class ToolSet:
             return {"ok": True, "tool": name, "result": methods[name](**arguments)}
         except DataError:
             return self._error(name, "DATA_UNAVAILABLE", "本地数据不可读取或格式无效", False)
+        except JudgeError as exc:
+            # A judge outage is a failed check, never a pass; it may be transient.
+            return self._error(name, "JUDGE_UNAVAILABLE", str(exc), True)
         except (ValueError, TypeError) as exc:
             return self._error(name, "INVALID_ARGUMENTS", str(exc), False)
         except OSError:
@@ -125,9 +132,12 @@ class ToolSet:
                     if len(ids) != len(set(ids)):
                         raise ValueError("duplicate fact IDs")
             else:
-                segments = data["controlled_language"]["neutral_segments"]
+                segments = data["claim_policy"]["signal_patterns"]
                 if not isinstance(segments, list) or not all(isinstance(t, str) for t in segments):
-                    raise ValueError("invalid neutral segments")
+                    raise ValueError("invalid signal patterns")
+                for pattern in segments:
+                    re.compile(pattern)
+                re.compile(data["claim_policy"]["negation_pattern"])
                 if not isinstance(data["rules"], list):
                     raise ValueError("invalid rules")
                 for rule in data["rules"]:
@@ -137,7 +147,7 @@ class ToolSet:
                     if not isinstance(examples, list) or not all(isinstance(t, str) and compact(t) for t in examples):
                         raise ValueError("invalid violation examples")
             return data
-        except (OSError, ValueError, TypeError, KeyError) as exc:
+        except (OSError, ValueError, TypeError, KeyError, re.error) as exc:
             raise DataError from exc
 
     def search_materials(self, query, limit=5):
@@ -174,12 +184,18 @@ class ToolSet:
             duration = duration.quantize(Decimal("0.1"), rounding=ROUND_CEILING)
             total += duration
             scenes.append({"id": scene["id"], "voiceover_units": spoken, "subtitle_units": subtitle, "estimated_duration_seconds": float(duration)})
-        passed = total <= Decimal(str(target_duration_seconds))
+        maximum = Decimal(str(target_duration_seconds))
+        minimum = (maximum * Decimal(2) / Decimal(3)).quantize(Decimal("0.1"), rounding=ROUND_CEILING)
+        passed = minimum <= total <= maximum
+        direction = "within_range" if passed else "too_long" if total > maximum else "too_short"
         return {
             "script_version": script["version"], "script_hash": fingerprint(script),
             "scenes": scenes, "estimated_total_duration_seconds": float(total),
             "target_duration_seconds": target_duration_seconds,
             "status": "passed" if passed else "failed",
+            "minimum_duration_seconds": float(minimum),
+            "direction": direction,
+            "under_by_seconds": float(max(Decimal("0"), minimum - total)),
             "over_by_seconds": float(max(Decimal("0"), total - Decimal(str(target_duration_seconds)))),
             "method": "max(旁白单位/4, 字幕单位/5, 1秒画面下限) + 每镜0.5秒停顿；每镜向上取一位小数后求和",
             "limitations": ["启发式估算，不能替代实际配音与剪辑；不采信输入中的预计时长。"],
@@ -189,52 +205,88 @@ class ToolSet:
         validate_script(script)
         materials = self._load("materials.json")["materials"]
         rules = self._load("brand_rules.json")
-        policy = rules["controlled_language"]
-        facts = {(m["id"], f["id"]): f["text"] for m in materials for f in m["facts"]}
+        facts = {
+            (material["id"], fact["id"]): fact["text"]
+            for material in materials for fact in material["facts"]
+        }
         issues = []
         valid_refs = set()
 
         def issue(rule, location, text, reason):
-            issues.append({"rule_id": rule, "location": location, "text": text, "reason": reason})
+            issues.append({"rule_id": rule, "location": location,
+                           "text": text, "reason": reason})
 
         for scene in script["scenes"]:
-            visible = "。".join(scene[field] for field in ("visual", "voiceover", "subtitle"))
+            visible = [compact(scene[key]) for key in ("visual", "voiceover", "subtitle")]
             for claim in scene["claims"]:
                 ref = (claim["source_id"], claim["fact_id"])
                 if ref not in facts:
                     issue("BR05", scene["id"], claim["text"], "素材或事实 ID 不存在")
                 elif compact(claim["text"]) != compact(facts[ref]):
-                    issue("BR01", scene["id"], claim["text"], "受控模式要求声明原文与资料事实一致")
-                elif compact(claim["text"]) not in compact(visible):
+                    issue("BR01", scene["id"], claim["text"], "产品声明必须逐字对应素材事实，不得扩写")
+                elif not any(compact(claim["text"]) in text for text in visible):
                     issue("BR05", scene["id"], claim["text"], "引用声明未出现在该分镜正文中")
                 else:
                     valid_refs.add((scene["id"], ref))
 
         fields = [("title", script["title"], None)]
         for scene in script["scenes"]:
-            fields.extend((f"{scene['id']}.{key}", scene[key], scene["id"]) for key in ("visual", "voiceover", "subtitle"))
-        neutral = {compact(text) for text in policy["neutral_segments"]}
+            fields.extend(
+                (f"{scene['id']}.{key}", scene[key], scene["id"])
+                for key in ("visual", "voiceover", "subtitle")
+            )
+        policy = rules["claim_policy"]
+        signals = re.compile("|".join(policy["signal_patterns"]), re.IGNORECASE)
         for location, text, sid in fields:
             for rule in rules["rules"]:
                 for example in rule.get("violation_examples", []):
                     if compact(example) in compact(text):
-                        issue(rule["id"], location, example, "命中当前合成品牌规则禁止示例")
-            # Fail closed: unrecognized prose is unresolved, not semantically verified.
+                        issue(rule["id"], location, example, "命中当前品牌规则禁止示例")
             for segment in re.split(r"[。！？!?；;\n]+", text):
-                normalized = compact(segment)
-                if not normalized or normalized in neutral:
+                remaining = compact(segment)
+                if not remaining:
                     continue
-                refs = [ref for ref, fact in facts.items() if compact(fact) == normalized]
-                if not refs:
-                    issue("BR01", location, segment, "不在受控事实或中性表达清单内，需改写或补充资料；不代表已证明为假")
-                elif not any(ref in refs and (sid is None or sid == scene_id) for scene_id, ref in valid_refs):
-                    issue("BR05", location, segment, "该事实缺少有效分镜引用；标题引用须在分镜中提供")
-        facts_failed = any(item["rule_id"] in ("BR01", "BR02", "BR03", "BR05") for item in issues)
+                for ref, fact in facts.items():
+                    normalized_fact = compact(fact)
+                    if normalized_fact not in remaining:
+                        continue
+                    has_reference = any(
+                        valid_ref == ref and (sid is None or scene_id == sid)
+                        for scene_id, valid_ref in valid_refs
+                    )
+                    if not has_reference:
+                        issue("BR05", location, segment, "产品事实缺少本分镜有效引用；标题需在分镜中引用")
+                        continue
+                    # An affirmative fact cannot substantiate a negated sentence.
+                    before_fact = remaining.split(normalized_fact, 1)[0]
+                    if re.search(policy["negation_pattern"], before_fact):
+                        issue("BR01", location, segment, "否定表述与引用事实不一致")
+                    remaining = remaining.replace(normalized_fact, "")
+                if signals.search(remaining):
+                    issue("BR01S", location, segment,
+                          "未被引用事实覆盖的文字含能力、效果、数字或宣传信号，需证据或改写")
+        lexical_failed = any(item["rule_id"] in ("BR01", "BR01S", "BR02", "BR03", "BR05") for item in issues)
         brand_failed = any(item["rule_id"] in ("BR02", "BR03", "BR04") for item in issues)
+        signals_found = [item for item in issues if item["rule_id"] == "BR01S"]
+        if self.judge is None:
+            # No judge: open-ended risk signals block on their own (fail closed).
+            semantic = {"status": "not_configured", "issues": [], "claims": []}
+        else:
+            # With a judge, signal hits are hints; the semantic verdict decides those sentences.
+            # Banned examples, citation integrity, verbatim claims and negation still block.
+            semantic = review(script, facts, self.judge)
+            issues = [item for item in issues if item["rule_id"] != "BR01S"]
+        issues.extend(semantic["issues"])
+        facts_failed = semantic["status"] == "failed" or any(
+            item["rule_id"] in ("BR01", "BR01S", "BR02", "BR03", "BR05") for item in issues)
         return {
             "script_version": script["version"], "script_hash": fingerprint(script),
             "facts": "failed" if facts_failed else "passed",
             "brand": "failed" if brand_failed else "passed",
-            "issues": issues, "mode": "controlled_language",
-            "limitations": ["只核验受控事实原文与中性表达清单；清单外表达保守拒绝，不提供通用语义事实判断。"],
+            "lexical": "failed" if lexical_failed else "passed",
+            "semantic": {key: value for key, value in semantic.items() if key != "issues"},
+            "signals": signals_found if self.judge is not None else [],
+            "issues": issues, "mode": "claims_risk_signals_and_semantic_review",
+            "limitations": rules["limitations"] + [
+                "语义复核依赖判定模型，可能误判；未配置判定模型时只有词法层，Agent 不允许完成。"],
         }

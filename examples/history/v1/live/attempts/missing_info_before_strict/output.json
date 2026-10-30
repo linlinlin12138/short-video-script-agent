@@ -1,0 +1,26 @@
+{
+  "status": "needs_input",
+  "message": "请补充这 5 项：产品名称/型号、字幕功能的素材原文或截图、可用的 source_id/fact_id（若已有）、希望突出的一条卖点、是否有禁用表述。",
+  "missing_fields": [
+    "target_duration_seconds"
+  ],
+  "questions": [
+    "产品名称/型号是什么？",
+    "请提供字幕功能相关素材原文或截图。",
+    "是否已有可引用的 source_id 和 fact_id？",
+    "希望重点介绍哪一条字幕功能卖点？",
+    "有没有必须避开的表述或合规限制？"
+  ],
+  "script": null,
+  "checks": {
+    "script_version": null,
+    "duration": "not_run",
+    "facts": "not_run",
+    "brand": "not_run",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；事实检查仅覆盖受控表达。"
+  ],
+  "tool_calls_used": 1
+}

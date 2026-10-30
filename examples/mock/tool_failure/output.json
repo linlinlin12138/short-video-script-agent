@@ -5,13 +5,21 @@
   "questions": [],
   "script": {
     "version": 1,
-    "title": "字幕功能介绍",
+    "title": "拍口播时，你想让观众记住哪句话？",
     "scenes": [
       {
         "id": "S01",
-        "visual": "产品画面",
-        "voiceover": "支持字幕",
-        "subtitle": "支持字幕",
+        "visual": "创作者面对镜头，停下手中的拍摄准备，切到手写重点的纸卡。",
+        "voiceover": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+        "subtitle": "拍口播时，你最想让观众记住哪句话？先把它写下来，再看这一段画面。",
+        "claims": [],
+        "estimated_duration_seconds": 7.5
+      },
+      {
+        "id": "S02",
+        "visual": "切到写着产品事实的文字卡，再回到创作者准备的内容提纲。",
+        "voiceover": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
+        "subtitle": "这次介绍的产品事实很简单：支持字幕。先围绕这一点，安排你的内容。",
         "claims": [
           {
             "text": "支持字幕",
@@ -19,20 +27,34 @@
             "fact_id": "P01-F1"
           }
         ],
-        "estimated_duration_seconds": 1.5
+        "estimated_duration_seconds": 7.5
+      },
+      {
+        "id": "S03",
+        "visual": "回到口播画面，创作者指向自己的提纲，最后停在评论区提问的文字卡。",
+        "voiceover": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+        "subtitle": "回到你准备发布的抖音视频，把重点放在哪里，由你来决定。评论区聊聊你的想法。",
+        "claims": [],
+        "estimated_duration_seconds": 8.8
       }
     ],
-    "estimated_total_duration_seconds": 1.5
+    "estimated_total_duration_seconds": 23.8
   },
+  "source_ids": [
+    "P01"
+  ],
   "checks": {
     "script_version": 1,
     "duration": "passed",
     "facts": "passed",
     "brand": "passed",
+    "semantic": "passed",
     "issues": []
   },
   "risks": [
-    "时长为启发式估算；事实检查仅覆盖受控表达。",
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。",
+    "本次语义复核使用离线固定标注，不代表真实语义判定。",
     "离线 Mock 仅验证流程，不证明真实模型决策效果。"
   ],
   "tool_calls_used": 4

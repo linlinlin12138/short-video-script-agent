@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-30T19:29:46.545795+00:00",
+  "capture_mode": "retrospective_not_run_start_attestation",
+  "provenance": "Snapshot captured after evaluation. No runtime source, dataset, rules, or evaluation runner changes were made between this run and capture in this work session. Hashes cannot independently prove historical execution. Future Git commits must not be presented as the original run commit.",
+  "code_version_sha256": "8a11784b006e66353ec70616724d4afe42d1ecdfae3572c8cc7e5e957ba52522",
+  "snapshot": "examples/checker/code-versions/8a11784b006e66353ec70616724d4afe42d1ecdfae3572c8cc7e5e957ba52522",
+  "files": {
+    "data/brand_rules.json": "b0830c487874bf971b44de644d2a2159453e82bfb3b2920d1efb767f35db2545",
+    "data/eval/claim_eval.json": "963fac853ffc66efd83668f781219525980d5ba3bd7528e57d060cc95ab80345",
+    "data/evaluation_claims.json": "5f2e353fcaad0db9904d824430500cc105357dd1571fe1d1541e2070ef052f19",
+    "data/materials.json": "bba4776658e1910a18681a475ac21533c78afebb852823aa0278a6227f0da643",
+    "examples/checker/run_claim_eval.py": "9d1ceb00599b37c60456329a8289f50e6e7cc40a86f86078296c67ea63fe4c63",
+    "examples/checker/run_regression.py": "784faa3a645e107102e26dcd63b72b892fcaf852890d12b2861da2cdc055badd",
+    "requirements.txt": "32f72d573bc4b12ae3f776c9150f1edd588acbb4b0a39ea15da6d78fbdf8ae63",
+    "schemas/input.schema.json": "9deef9d8debc59286a27c3f71ddb09039d9b4c407b74453585d139534d995a8c",
+    "schemas/output.schema.json": "72ab136813c2ddb14d9ecd760782a27c43fae0c1f18295bc662eb0963299d498",
+    "src/__init__.py": "f154bf2485b8046d47faa43d4dbf5f449b32ec7024190bca2aa7d85c3d884108",
+    "src/agent.py": "6f928ecc87d5faffb5546b95cd04688840bef2c5fd26fdcb4c6886797e8f4b72",
+    "src/cli.py": "b2509bef07b11116de8d2136a99f831c2d019cbe14442ad4084c7463dfa07c34",
+    "src/contracts.py": "d6a16c6491a042f837747ba322024ed83b8a08b8eee697d5d3d8819851a83167",
+    "src/models.py": "d6583f0e54e5002d4692b3b9fae25f630ede4d91379abd1bbfda63a7d45e6f7f",
+    "src/prompts.py": "928ef074e879cf59339be4c1d94998c55c5cabd4f0ba6f5f772115aa6189438c",
+    "src/tools/__init__.py": "2ba2ab7c616207bd82070f1705ecc0dfed04fcf1980d8c058cffce0ae98965bb",
+    "src/tools/local.py": "6e0ba75729da50ca5f67b78fcee65e40f7a06bcd4eaf249cacab108165576aad",
+    "src/verifier.py": "f9dbd434c385346b77392b9acd54c77f205744b032f14b5c5eb24ca15610eefa"
+  },
+  "git_context_at_capture": {
+    "head": "e45c0474d9f6692eb8744386c5882a60965533e1",
+    "dirty": true,
+    "head_is_exact_run_version": false
+  },
+  "run": {
+    "started_at": "2026-10-30T19:25:00.654630+00:00",
+    "finished_at": "2026-10-30T19:26:34.017075+00:00",
+    "judge": "gpt-5.4-mini-2026-03-17",
+    "judge_mode": "live",
+    "api": "responses",
+    "reasoning_effort": "medium",
+    "rules_version": "2.2",
+    "dataset_sha256": "963fac853ffc66efd83668f781219525980d5ba3bd7528e57d060cc95ab80345"
+  },
+  "command": "python3 -m examples.checker.run_claim_eval --judge live --env-file .env --api responses --reasoning-effort medium --timeout 60",
+  "artifacts": {
+    "examples/checker/claim-eval-live.json": "cd05543506003d9737ef03cd073dcd5439b8299ad22d8bd865e43ce4e4042072",
+    "examples/checker/claim-eval-live.trace.jsonl": "42ff95336b85ebee873bbbe2ddd19b9364b95f005c35cba27d7b76703a4d15c6",
+    "examples/checker/claim-eval-live.verification.json": "54a47458319bf0174fae4d6b2e011519982209c0a39352675894044d396bcd05"
+  },
+  "prior_runtime_crosscheck": {
+    "path": "examples/live/normal/runtime-manifest.json",
+    "sha256": "a9d33473bb5ded6371405450e53e28150971ca81762d8ced07dee466a48e4352",
+    "shared_files": [
+      "data/brand_rules.json",
+      "data/eval/claim_eval.json",
+      "data/evaluation_claims.json",
+      "data/materials.json",
+      "schemas/input.schema.json",
+      "schemas/output.schema.json",
+      "src/__init__.py",
+      "src/agent.py",
+      "src/cli.py",
+      "src/contracts.py",
+      "src/models.py",
+      "src/prompts.py",
+      "src/tools/__init__.py",
+      "src/tools/local.py",
+      "src/verifier.py"
+    ],
+    "mismatches": []
+  }
+}

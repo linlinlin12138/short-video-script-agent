@@ -1,0 +1,21 @@
+{
+  "status": "needs_input",
+  "message": "当前草稿已完成，但最终提交接口未通过校验，暂无法标记为 completed。",
+  "missing_fields": [],
+  "questions": [
+    "请确认是否需要我继续调整并重新提交脚本？"
+  ],
+  "script": null,
+  "source_ids": [],
+  "checks": {
+    "script_version": 4,
+    "duration": "not_run",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 7
+}

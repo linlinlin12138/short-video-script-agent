@@ -1,0 +1,208 @@
+{
+  "scope": "saved_real_HTTP_responses_audited_without_new_model_calls",
+  "selected": {
+    "normal": {
+      "directory": "normal/attempt-01",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 3,
+      "api_calls": 5,
+      "judge_api_calls": 1,
+      "estimated_seconds": [
+        24.1
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": false,
+      "natural_overlong_correction": false,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 15,
+      "supported_claims": 3,
+      "final_version": 1,
+      "final_seconds": 24.1,
+      "final_judge_response_id": "resp_0c069b4f21289fd7016ae4ecbf202087d2b663ca2121048ffa"
+    },
+    "duration_revision": {
+      "directory": "duration_revision/attempt-03",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 5,
+      "api_calls": 8,
+      "judge_api_calls": 2,
+      "estimated_seconds": [
+        36.2,
+        20.1
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": false,
+      "natural_overlong_correction": true,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 13,
+      "supported_claims": 2,
+      "final_version": 2,
+      "final_seconds": 20.1,
+      "final_judge_response_id": "resp_07ff3273efe7e045016ae4ed21a7e887d2ba1d042994c2b20a"
+    },
+    "tool_failure": {
+      "directory": "tool_failure/attempt-01",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 4,
+      "api_calls": 6,
+      "judge_api_calls": 1,
+      "estimated_seconds": [
+        22.8
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": true,
+      "natural_overlong_correction": false,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 13,
+      "supported_claims": 3,
+      "final_version": 1,
+      "final_seconds": 22.8,
+      "final_judge_response_id": "resp_00508a2e7495d7fc016ae4ecc129dc87d2a7f4a21462fcd67a"
+    }
+  },
+  "all_attempts": [
+    {
+      "directory": "duration_revision/attempt-01",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 4,
+      "api_calls": 6,
+      "judge_api_calls": 1,
+      "estimated_seconds": [
+        18.8,
+        29.9
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": false,
+      "natural_overlong_correction": false,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 15,
+      "supported_claims": 2,
+      "final_version": 2,
+      "final_seconds": 29.9,
+      "final_judge_response_id": "resp_01cd6e5e36cbf3ff016ae4ecbfa77c87d2bb9e20c57c1d1233"
+    },
+    {
+      "directory": "duration_revision/attempt-02",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 3,
+      "api_calls": 5,
+      "judge_api_calls": 1,
+      "estimated_seconds": [
+        25.6
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": false,
+      "natural_overlong_correction": false,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 16,
+      "supported_claims": 3,
+      "final_version": 1,
+      "final_seconds": 25.6,
+      "final_judge_response_id": "resp_01caa5d613d55298016ae4ed1612d087d29e7ab82348a4d133"
+    },
+    {
+      "directory": "duration_revision/attempt-03",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 5,
+      "api_calls": 8,
+      "judge_api_calls": 2,
+      "estimated_seconds": [
+        36.2,
+        20.1
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": false,
+      "natural_overlong_correction": true,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 13,
+      "supported_claims": 2,
+      "final_version": 2,
+      "final_seconds": 20.1,
+      "final_judge_response_id": "resp_07ff3273efe7e045016ae4ed21a7e887d2ba1d042994c2b20a"
+    },
+    {
+      "directory": "duration_revision/attempt-04",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 3,
+      "api_calls": 5,
+      "judge_api_calls": 1,
+      "estimated_seconds": [
+        28.2
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": false,
+      "natural_overlong_correction": false,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 20,
+      "supported_claims": 2,
+      "final_version": 1,
+      "final_seconds": 28.2,
+      "final_judge_response_id": "resp_07dc300823494ad3016ae4ed16319087d2b5461cd07712486f"
+    },
+    {
+      "directory": "normal/attempt-01",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 3,
+      "api_calls": 5,
+      "judge_api_calls": 1,
+      "estimated_seconds": [
+        24.1
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": false,
+      "natural_overlong_correction": false,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 15,
+      "supported_claims": 3,
+      "final_version": 1,
+      "final_seconds": 24.1,
+      "final_judge_response_id": "resp_0c069b4f21289fd7016ae4ecbf202087d2b663ca2121048ffa"
+    },
+    {
+      "directory": "tool_failure/attempt-01",
+      "status": "completed",
+      "output_semantic": "passed",
+      "tool_calls_used": 4,
+      "api_calls": 6,
+      "judge_api_calls": 1,
+      "estimated_seconds": [
+        22.8
+      ],
+      "guard_rejections": 0,
+      "tool_failure_seen": true,
+      "natural_overlong_correction": false,
+      "final_semantic_audit": "actual_live_response_matched_and_offline_replay_passed",
+      "judge": "gpt-5.4-mini-2026-03-17",
+      "returned_judge_model": "gpt-5.4-mini-2026-03-17",
+      "segments_reviewed": 13,
+      "supported_claims": 3,
+      "final_version": 1,
+      "final_seconds": 22.8,
+      "final_judge_response_id": "resp_00508a2e7495d7fc016ae4ecc129dc87d2a7f4a21462fcd67a"
+    }
+  ]
+}

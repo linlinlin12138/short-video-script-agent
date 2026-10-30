@@ -1,0 +1,398 @@
+{
+  "rules_version": "2.1",
+  "scope": "actual_pre_fix_local_checks_with_valid_P01_reference",
+  "missed": 7,
+  "records": [
+    {
+      "text": "用它做字幕，剪辑时间直接减半",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "用它做字幕，剪辑时间直接减半",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "1a9df7fa1af8a84d3237039ff41c559cb3300a5b18bfbc04827f9433c76e9d71",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "字幕会跟着语音同步出现",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "字幕会跟着语音同步出现",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "73797f0fc5bbda6870bc9c304108658f7841e9030b14f97b1c2af95c1ce82381",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "字幕样式有几十种可选",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "字幕样式有几十种可选",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "517c8c6d21077882a15f450dec5c3de9621decf4bdf38000a57a078776c6e110",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "它能帮你把字幕对齐时间轴",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "它能帮你把字幕对齐时间轴",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "dc60999b3ec7ae51d6e360aa3030dd2d53e39d289f314e56e14ce5d1b5e11d96",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "字幕可以批量修改",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "字幕可以批量修改",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "4fc070349e62a525cbf4ef0ae504fe9a9fd58fa90d2ebe8d60a558cce3f0831c",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "字幕不再需要手动打",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "字幕不再需要手动打",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "e9856751b7ebc0af376d219528f35d53a20633ccab856db22983c4006e3bf65c",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "做出爆款视频",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "做出爆款视频",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "688df6d8f67c1d43ca286823110e98f42b43bb7e653f613da04e5dfe938c3aef",
+          "facts": "passed",
+          "brand": "passed",
+          "issues": [],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "支持字幕，还能识别方言",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "支持字幕，还能识别方言",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "358eab65e75bb88e2ecc790fe18e73be9fa98bb9ca9f4fce73ddc1f0ba98256c",
+          "facts": "failed",
+          "brand": "passed",
+          "issues": [
+            {
+              "rule_id": "BR01",
+              "location": "S01.voiceover",
+              "text": "支持字幕，还能识别方言",
+              "reason": "未被引用事实覆盖的文字含能力、效果、数字或宣传信号，需证据或改写"
+            }
+          ],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "不支持字幕",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "不支持字幕",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "2ea8c699f4f82ef9cd67e75d52d81e046f561b01dbc38c70c3a8c16d2123a43e",
+          "facts": "failed",
+          "brand": "passed",
+          "issues": [
+            {
+              "rule_id": "BR01",
+              "location": "S01.voiceover",
+              "text": "不支持字幕",
+              "reason": "否定表述与引用事实不一致"
+            }
+          ],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    },
+    {
+      "text": "打开产品界面点击字幕按钮",
+      "input": {
+        "version": 1,
+        "title": "字幕功能介绍",
+        "scenes": [
+          {
+            "id": "S01",
+            "visual": "创作者举起纸卡。",
+            "voiceover": "打开产品界面点击字幕按钮",
+            "subtitle": "支持字幕",
+            "claims": [
+              {
+                "text": "支持字幕",
+                "source_id": "P01",
+                "fact_id": "P01-F1"
+              }
+            ]
+          }
+        ]
+      },
+      "output": {
+        "ok": true,
+        "tool": "check_rules",
+        "result": {
+          "script_version": 1,
+          "script_hash": "47aeb3e08c5f4628d756e668caff3bb12ed800124e422b0fa79ec5a835935ab4",
+          "facts": "failed",
+          "brand": "passed",
+          "issues": [
+            {
+              "rule_id": "BR01",
+              "location": "S01.voiceover",
+              "text": "打开产品界面点击字幕按钮",
+              "reason": "未被引用事实覆盖的文字含能力、效果、数字或宣传信号，需证据或改写"
+            }
+          ],
+          "mode": "claims_and_risk_signals",
+          "limitations": [
+            "词法风险检测可能漏掉隐含、同义或无信号的产品声明，也可能误报一般叙事。它不是语义证明，最终文案需人工逐句核对。"
+          ]
+        }
+      }
+    }
+  ]
+}

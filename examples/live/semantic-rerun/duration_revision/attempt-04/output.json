@@ -1,0 +1,75 @@
+{
+  "status": "completed",
+  "message": "已完成：草稿第1版通过时长检查（28.2秒，落在30秒目标的三分之二至目标区间）和事实/品牌检查，且唯一产品事实“支持字幕”已按素材引用。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 1,
+    "title": "口播创作者先看字幕这一步",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者对着手机镜头，讲到一半停住，低头看一眼手里的纸卡。",
+        "voiceover": "拍口播最怕什么？不是没话说，是讲完了才发现重点没落住。",
+        "subtitle": "拍口播最怕什么？不是没话说，是讲完了才发现重点没落住。",
+        "claims": [],
+        "estimated_duration_seconds": 6.5
+      },
+      {
+        "id": "s2",
+        "visual": "创作者把写着“字幕”的纸卡举到镜头前，再放回桌面。",
+        "voiceover": "所以我拍的时候，会先看字幕这一项。",
+        "subtitle": "所以我拍的时候，会先看字幕这一项。",
+        "claims": [],
+        "estimated_duration_seconds": 4.3
+      },
+      {
+        "id": "s3",
+        "visual": "桌面上放着一张写有“支持字幕”的卡片，旁边是手机和便签。",
+        "voiceover": "今天只说一个事实：它支持字幕。",
+        "subtitle": "今天只说一个事实：它支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 3.8
+      },
+      {
+        "id": "s4",
+        "visual": "创作者把重点句写在便签上，边写边对照镜头里的口播内容。",
+        "voiceover": "我的做法也很简单：先把口播讲完，再把重点句单独记下来，回头一条条核对。",
+        "subtitle": "我的做法也很简单：先把口播讲完，再把重点句单独记下来，回头一条条核对。",
+        "claims": [],
+        "estimated_duration_seconds": 8.3
+      },
+      {
+        "id": "s5",
+        "visual": "创作者把便签贴在桌前，抬头看向镜头，留下停顿。",
+        "voiceover": "你做短视频时，最常卡在哪一步？评论区告诉我。",
+        "subtitle": "你做短视频时，最常卡在哪一步？评论区告诉我。",
+        "claims": [],
+        "estimated_duration_seconds": 5.3
+      }
+    ],
+    "estimated_total_duration_seconds": 28.2
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 1,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "semantic": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。"
+  ],
+  "tool_calls_used": 3
+}

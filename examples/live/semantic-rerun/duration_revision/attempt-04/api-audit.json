@@ -1,0 +1,295 @@
+{
+  "scope": "actual_HTTPModel_post_calls_no_response_substitution",
+  "command_arguments": [
+    "--input",
+    "examples/live/semantic-rerun/duration_revision/attempt-04/input.json",
+    "--model",
+    "live",
+    "--env-file",
+    ".env",
+    "--api",
+    "responses",
+    "--reasoning-effort",
+    "medium",
+    "--timeout",
+    "60",
+    "--output-dir",
+    "examples/live/semantic-rerun/duration_revision/attempt-04"
+  ],
+  "calls": [
+    {
+      "index": 1,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "afbdd74d0b4c27089463a30944457fe0ba1c445e8a0c0541ac7515ef64fdc161",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_098aa2780d27dc71016ae4ed08634c87d2b822156cb5e2baa1",
+      "response_hash": "d21a5ed5b79d2d1c2ca8bb8c2af01f154a91e47cdd876e61ca5ebb82d9a39552",
+      "elapsed_seconds": 1.486
+    },
+    {
+      "index": 2,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "80e07a2e540aa64b373ba3e76e203ac92d95ad60f85cafd6132e8692111bb8ab",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_098aa2780d27dc71016ae4ed09aa8887d2a16eb00a1e1148c0",
+      "response_hash": "20e360a7e822a8b1b0ebd04f7751d8828d7bd7d6bf42c2b06d9e43fe68cc1244",
+      "elapsed_seconds": 9.891
+    },
+    {
+      "index": 3,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "5edfe435a1d23708de0b64126a8e933828a0b22ec12bb1fe7dda0414da2da461",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_098aa2780d27dc71016ae4ed138c3887d2a120bc9c6da70d9c",
+      "response_hash": "9d8c4977c88efa9d6fd729e52a85740f862bd404e4d64480e9558daad702e49e",
+      "elapsed_seconds": 2.685
+    },
+    {
+      "index": 4,
+      "kind": "semantic_judge",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "87cf7e00873eee1a5b26e2fc146626f0dee8f111c321f725a7189375502a8ade",
+      "judge_input": {
+        "facts": [
+          {
+            "source_id": "P01",
+            "fact_id": "P01-F1",
+            "text": "支持字幕"
+          }
+        ],
+        "segments": [
+          {
+            "id": "G01",
+            "location": "title",
+            "text": "口播创作者先看字幕这一步"
+          },
+          {
+            "id": "G02",
+            "location": "s1.visual",
+            "text": "创作者对着手机镜头，讲到一半停住，低头看一眼手里的纸卡"
+          },
+          {
+            "id": "G03",
+            "location": "s1.voiceover",
+            "text": "拍口播最怕什么"
+          },
+          {
+            "id": "G04",
+            "location": "s1.voiceover",
+            "text": "不是没话说，是讲完了才发现重点没落住"
+          },
+          {
+            "id": "G05",
+            "location": "s1.subtitle",
+            "text": "拍口播最怕什么"
+          },
+          {
+            "id": "G06",
+            "location": "s1.subtitle",
+            "text": "不是没话说，是讲完了才发现重点没落住"
+          },
+          {
+            "id": "G07",
+            "location": "s2.visual",
+            "text": "创作者把写着“字幕”的纸卡举到镜头前，再放回桌面"
+          },
+          {
+            "id": "G08",
+            "location": "s2.voiceover",
+            "text": "所以我拍的时候，会先看字幕这一项"
+          },
+          {
+            "id": "G09",
+            "location": "s2.subtitle",
+            "text": "所以我拍的时候，会先看字幕这一项"
+          },
+          {
+            "id": "G10",
+            "location": "s3.visual",
+            "text": "桌面上放着一张写有“支持字幕”的卡片，旁边是手机和便签"
+          },
+          {
+            "id": "G11",
+            "location": "s3.voiceover",
+            "text": "今天只说一个事实：它支持字幕"
+          },
+          {
+            "id": "G12",
+            "location": "s3.subtitle",
+            "text": "今天只说一个事实：它支持字幕"
+          },
+          {
+            "id": "G13",
+            "location": "s4.visual",
+            "text": "创作者把重点句写在便签上，边写边对照镜头里的口播内容"
+          },
+          {
+            "id": "G14",
+            "location": "s4.voiceover",
+            "text": "我的做法也很简单：先把口播讲完，再把重点句单独记下来，回头一条条核对"
+          },
+          {
+            "id": "G15",
+            "location": "s4.subtitle",
+            "text": "我的做法也很简单：先把口播讲完，再把重点句单独记下来，回头一条条核对"
+          },
+          {
+            "id": "G16",
+            "location": "s5.visual",
+            "text": "创作者把便签贴在桌前，抬头看向镜头，留下停顿"
+          },
+          {
+            "id": "G17",
+            "location": "s5.voiceover",
+            "text": "你做短视频时，最常卡在哪一步"
+          },
+          {
+            "id": "G18",
+            "location": "s5.voiceover",
+            "text": "评论区告诉我"
+          },
+          {
+            "id": "G19",
+            "location": "s5.subtitle",
+            "text": "你做短视频时，最常卡在哪一步"
+          },
+          {
+            "id": "G20",
+            "location": "s5.subtitle",
+            "text": "评论区告诉我"
+          }
+        ]
+      },
+      "instructions_hash": "73cc79d6dc8c7046fb8c17e2a558a9724d5c47e287065902cb66c740202a9559",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_07dc300823494ad3016ae4ed16319087d2b5461cd07712486f",
+      "response_hash": "4148b35033c362ec59aeeca57edfe10475d56f2209c30629c4eefe401a8f33d3",
+      "verdict": {
+        "segments": [
+          {
+            "id": "G01",
+            "claims": []
+          },
+          {
+            "id": "G02",
+            "claims": []
+          },
+          {
+            "id": "G03",
+            "claims": []
+          },
+          {
+            "id": "G04",
+            "claims": []
+          },
+          {
+            "id": "G05",
+            "claims": []
+          },
+          {
+            "id": "G06",
+            "claims": []
+          },
+          {
+            "id": "G07",
+            "claims": []
+          },
+          {
+            "id": "G08",
+            "claims": []
+          },
+          {
+            "id": "G09",
+            "claims": []
+          },
+          {
+            "id": "G10",
+            "claims": []
+          },
+          {
+            "id": "G11",
+            "claims": [
+              {
+                "text": "它支持字幕",
+                "verdict": "supported",
+                "fact_ids": [
+                  "P01-F1"
+                ],
+                "reason": "fact原文直接写明“支持字幕”。"
+              }
+            ]
+          },
+          {
+            "id": "G12",
+            "claims": [
+              {
+                "text": "它支持字幕",
+                "verdict": "supported",
+                "fact_ids": [
+                  "P01-F1"
+                ],
+                "reason": "fact原文直接写明“支持字幕”。"
+              }
+            ]
+          },
+          {
+            "id": "G13",
+            "claims": []
+          },
+          {
+            "id": "G14",
+            "claims": []
+          },
+          {
+            "id": "G15",
+            "claims": []
+          },
+          {
+            "id": "G16",
+            "claims": []
+          },
+          {
+            "id": "G17",
+            "claims": []
+          },
+          {
+            "id": "G18",
+            "claims": []
+          },
+          {
+            "id": "G19",
+            "claims": []
+          },
+          {
+            "id": "G20",
+            "claims": []
+          }
+        ]
+      },
+      "elapsed_seconds": 4.124
+    },
+    {
+      "index": 5,
+      "kind": "agent",
+      "endpoint": "/responses",
+      "requested_model": "gpt-5.4-mini-2026-03-17",
+      "request_hash": "a90c0feb3f7287a40f23f7774f6885e76b173d1f8dea94278a6fc8399a474c3a",
+      "transport_status": "success",
+      "returned_model": "gpt-5.4-mini-2026-03-17",
+      "response_id": "resp_098aa2780d27dc71016ae4ed1a5b6087d2bf6079784f684fd8",
+      "response_hash": "7ecad16bb708e6ea06a69428fde02310419d7c718558122d2edc8ae0abfadf67",
+      "elapsed_seconds": 1.651
+    }
+  ]
+}

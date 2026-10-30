@@ -1,0 +1,67 @@
+{
+  "status": "completed",
+  "message": "已完成：脚本版本1通过时长与事实/品牌检查，可直接阅读和编辑。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 1,
+    "title": "短视频字幕怎么安排",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "桌面上放着手机、脚本纸和一张手写卡片，创作者拿笔停在半空。",
+        "voiceover": "拍短视频时，最容易忘的，往往不是开头，而是最后那行字幕。",
+        "subtitle": "最容易忘的，往往是最后那行字幕。",
+        "claims": [],
+        "estimated_duration_seconds": 6.5
+      },
+      {
+        "id": "S2",
+        "visual": "创作者把一张写着“支持字幕”的卡片摆到镜头前，再轻轻点一下。",
+        "voiceover": "这款产品支持字幕。",
+        "subtitle": "这款产品支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 2.5
+      },
+      {
+        "id": "S3",
+        "visual": "纸上列着“开头、口播、字幕、结尾”四项，创作者用笔圈出“字幕”。",
+        "voiceover": "我会先把字幕写进提纲，边拍边对照，避免收尾时才临时补。",
+        "subtitle": "先把字幕写进提纲，边拍边对照。",
+        "claims": [],
+        "estimated_duration_seconds": 6.5
+      },
+      {
+        "id": "S4",
+        "visual": "创作者把笔记本合上，对镜头示意“开始”，桌边留着字幕清单。",
+        "voiceover": "如果你也经常卡在这一步，先留一张字幕卡片，拍完照着检查就行。",
+        "subtitle": "先留一张字幕卡片，拍完照着检查。",
+        "claims": [],
+        "estimated_duration_seconds": 7.3
+      }
+    ],
+    "estimated_total_duration_seconds": 22.8
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 1,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "semantic": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。"
+  ],
+  "tool_calls_used": 4
+}

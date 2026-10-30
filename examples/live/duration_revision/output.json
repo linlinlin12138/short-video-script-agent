@@ -1,17 +1,33 @@
 {
   "status": "completed",
-  "message": "已生成并校验通过第2版脚本，满足3秒目标。",
+  "message": "已完成可直接使用的抖音脚本，当前版本事实检查通过且总时长约20.1秒，落在30秒目标的可接受区间内。",
   "missing_fields": [],
   "questions": [],
   "script": {
     "version": 2,
-    "title": "字幕功能介绍",
+    "title": "拍口播时，我先看字幕",
     "scenes": [
       {
-        "id": "scene1",
-        "visual": "字幕功能介绍",
-        "voiceover": "支持字幕。",
-        "subtitle": "支持字幕",
+        "id": "s1",
+        "visual": "创作者拍完口播，暂停回看手机，桌边放着记事本和马克笔。",
+        "voiceover": "拍完口播，我最先看的，不是封面，是字幕。",
+        "subtitle": "拍完口播，我先看字幕。",
+        "claims": [],
+        "estimated_duration_seconds": 4.5
+      },
+      {
+        "id": "s2",
+        "visual": "桌面特写，几张手写关键词卡片摆在旁边，创作者边看边整理台词。",
+        "voiceover": "台词一长，我自己念着都容易卡，所以常先把重点写成纸卡。",
+        "subtitle": "台词一长，我会先写成纸卡。",
+        "claims": [],
+        "estimated_duration_seconds": 6.5
+      },
+      {
+        "id": "s3",
+        "visual": "镜头对准一张手写卡片，上面清楚写着“支持字幕”。",
+        "voiceover": "资料里能确认的一点是：它支持字幕。",
+        "subtitle": "支持字幕。",
         "claims": [
           {
             "text": "支持字幕",
@@ -19,20 +35,33 @@
             "fact_id": "P01-F1"
           }
         ],
-        "estimated_duration_seconds": 1.5
+        "estimated_duration_seconds": 4.3
+      },
+      {
+        "id": "s4",
+        "visual": "创作者放下纸卡，看向镜头，做出邀请手势。",
+        "voiceover": "你做短视频时，会先写台词，还是先拍画面？",
+        "subtitle": "你会先写台词，还是先拍画面？",
+        "claims": [],
+        "estimated_duration_seconds": 4.8
       }
     ],
-    "estimated_total_duration_seconds": 1.5
+    "estimated_total_duration_seconds": 20.1
   },
+  "source_ids": [
+    "P01"
+  ],
   "checks": {
     "script_version": 2,
     "duration": "passed",
     "facts": "passed",
     "brand": "passed",
+    "semantic": "passed",
     "issues": []
   },
   "risks": [
-    "时长为启发式估算；事实检查仅覆盖受控表达。"
+    "时长为启发式估算，未经实际配音验证。",
+    "产品声明经词法扫描与模型语义复核，两者都可能误判；发布前仍需人工逐句核对。"
   ],
   "tool_calls_used": 5
 }

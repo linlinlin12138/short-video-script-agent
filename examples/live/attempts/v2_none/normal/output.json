@@ -1,0 +1,66 @@
+{
+  "status": "needs_input",
+  "message": "当前可用事实只有“支持字幕”，不足以支撑更长的产品功能介绍脚本。",
+  "missing_fields": [],
+  "questions": [
+    "请再提供与字幕功能相关的更多产品事实或素材文案，方便我把脚本扩写到30秒合规版本。"
+  ],
+  "script": {
+    "version": 1,
+    "title": "拍短视频，字幕别漏掉",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "开场：创作者对着镜头举起手机，屏幕上出现‘字幕很重要’的手写卡片。",
+        "voiceover": "拍短视频时，字幕很关键。",
+        "subtitle": "字幕很关键。",
+        "claims": [],
+        "estimated_duration_seconds": 3.0
+      },
+      {
+        "id": "S2",
+        "visual": "中景：创作者边拍边指向画面下方的字幕区域，旁边放着产品界面示意图。",
+        "voiceover": "这款产品支持字幕，适合日常剪辑里直接使用。",
+        "subtitle": "支持字幕，适合日常剪辑。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 5.3
+      },
+      {
+        "id": "S3",
+        "visual": "收尾：创作者看向镜头，手指轻点手机屏幕，画面留出评论区引导位。",
+        "voiceover": "如果你也想让视频表达更完整，先试试字幕功能。",
+        "subtitle": "评论区告诉我，你最常用字幕吗？",
+        "claims": [],
+        "estimated_duration_seconds": 5.5
+      }
+    ],
+    "estimated_total_duration_seconds": 13.8
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 1,
+    "duration": "failed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": [
+      {
+        "rule_id": "DURATION",
+        "location": "script",
+        "text": "13.8",
+        "reason": "预计时长不在目标三分之二至目标的区间内：too_short"
+      }
+    ]
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 5
+}

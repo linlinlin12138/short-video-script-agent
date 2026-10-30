@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "message": "已生成可直接使用的抖音脚本，第二版时长29.5秒，且事实与品牌检查通过。",
+  "missing_fields": [],
+  "questions": [],
+  "script": {
+    "version": 2,
+    "title": "拍短视频时，字幕别只靠猜",
+    "scenes": [
+      {
+        "id": "s1",
+        "visual": "创作者对着手机镜头开场，桌上放着‘字幕怎么做’的手写卡片，先停顿一下再进入正题。",
+        "voiceover": "拍短视频时，你是不是也常卡在字幕这一步？",
+        "subtitle": "字幕这一步，你会卡住吗？",
+        "claims": [],
+        "estimated_duration_seconds": 5.0
+      },
+      {
+        "id": "s2",
+        "visual": "创作者拿起写有‘支持字幕’的纸条，对着镜头边说边把纸条放回桌面。",
+        "voiceover": "这款产品支持字幕，我会先把它放进自己的创作流程里，再继续拍后面的内容。",
+        "subtitle": "这款产品支持字幕。",
+        "claims": [
+          {
+            "text": "支持字幕",
+            "source_id": "P01",
+            "fact_id": "P01-F1"
+          }
+        ],
+        "estimated_duration_seconds": 8.5
+      },
+      {
+        "id": "s3",
+        "visual": "镜头切到创作者做分段口播示意，桌上放着提纲纸和笔，人物用手指着提纲一条条讲。",
+        "voiceover": "对创作者来说，先把开场、正文和收尾分开准备，字幕也更容易跟着整体节奏走。",
+        "subtitle": "先把开场、正文和收尾分开准备。",
+        "claims": [],
+        "estimated_duration_seconds": 8.5
+      },
+      {
+        "id": "s4",
+        "visual": "创作者回到镜头前，拿起手机做结束动作，旁边纸卡写着‘先做一版’。",
+        "voiceover": "如果你也在做抖音内容，不妨先试着把字幕放进下一条视频里看看。",
+        "subtitle": "先试着放进下一条视频里看看。",
+        "claims": [],
+        "estimated_duration_seconds": 7.5
+      }
+    ],
+    "estimated_total_duration_seconds": 29.5
+  },
+  "source_ids": [
+    "P01"
+  ],
+  "checks": {
+    "script_version": 2,
+    "duration": "passed",
+    "facts": "passed",
+    "brand": "passed",
+    "issues": []
+  },
+  "risks": [
+    "时长为启发式估算；词法风险检测可能漏检或误报，产品事实仍需人工核对。"
+  ],
+  "tool_calls_used": 5
+}

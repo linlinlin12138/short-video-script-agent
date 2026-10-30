@@ -1,9 +1,11 @@
 import copy
+import json
 import tempfile
 import unittest
 from pathlib import Path
 
 from src.tools import ToolSet
+from src.tools.local import ROOT
 
 
 def draft():
@@ -37,7 +39,7 @@ class ToolTests(unittest.TestCase):
     def test_duration_ignores_draft_estimates_and_simultaneous_subtitle(self):
         script = draft()
         before = copy.deepcopy(script)
-        result = self.call("estimate_duration", script=script, target_duration_seconds=30)
+        result = self.call("estimate_duration", script=script, target_duration_seconds=2)
         self.assertEqual(result["estimated_total_duration_seconds"], 1.5)
         self.assertEqual(result["status"], "passed")
         self.assertEqual(script, before)
@@ -50,7 +52,7 @@ class ToolTests(unittest.TestCase):
         self.assertEqual(first["status"], "failed")
         script["version"] = 2
         script["scenes"][0]["voiceover"] = "支持字幕"
-        second = self.call("estimate_duration", script=script, target_duration_seconds=30)
+        second = self.call("estimate_duration", script=script, target_duration_seconds=2)
         self.assertEqual(second["status"], "passed")
         self.assertNotEqual(first["script_hash"], second["script_hash"])
 
@@ -85,6 +87,70 @@ class ToolTests(unittest.TestCase):
         script["scenes"][0]["voiceover"] = "让制作变得更轻松"
         result = self.call("check_rules", script=script)
         self.assertEqual(result["facts"], "failed")
+
+    def test_creative_narrative_and_concrete_visuals_do_not_need_claims(self):
+        script = draft()
+        script["title"] = "拍完口播，你想让观众记住什么？"
+        script["scenes"][0].update(
+            visual="创作者面对镜头，切到手写提纲的纸卡，再回到口播画面。",
+            voiceover="拍完这段口播，先想想你最想说什么。评论区聊聊你的想法。",
+        )
+        # The subtitle still carries the referenced product fact.
+        result = self.call("check_rules", script=script)
+        self.assertEqual(result["facts"], "passed")
+        script["scenes"][0].update(subtitle="", claims=[])
+        self.assertEqual(self.call("check_rules", script=script)["facts"], "passed")
+
+    def test_valid_reference_cannot_cover_extra_capabilities_or_metrics(self):
+        for text in ("支持字幕，还能自动生成。", "支持字幕，效率提高８０％。",
+                     "支持字幕，比其他产品更快。", "支持字幕，多语言翻译。",
+                     "支持字幕，让创作更容易。"):
+            with self.subTest(text=text):
+                script = draft()
+                script["scenes"][0]["voiceover"] = text
+                result = self.call("check_rules", script=script)
+                self.assertEqual(result["facts"], "failed")
+
+    def test_reported_ten_fabricated_claims_are_rejected_with_valid_reference(self):
+        cases = json.loads((ROOT / 'data/evaluation_claims.json').read_text())
+        for text in cases['unsupported_claims']:
+            with self.subTest(text=text):
+                script = draft()
+                script['scenes'][0]['voiceover'] = text
+                # Keep subtitle and P01-F1 intact: a valid reference is not a waiver.
+                result = self.call('check_rules', script=script)
+                self.assertEqual(result['facts'], 'failed')
+                self.assertTrue(any(issue['location'] == 'S01.voiceover'
+                                    for issue in result['issues']))
+
+    def test_creator_advice_with_modal_verbs_remains_allowed(self):
+        cases = json.loads((ROOT / 'data/evaluation_claims.json').read_text())
+        for text in cases['narrative_controls']:
+            with self.subTest(text=text):
+                script = draft()
+                script['scenes'][0]['voiceover'] = text
+                self.assertEqual(self.call('check_rules', script=script)['facts'], 'passed')
+
+    def test_negated_claim_is_not_supported_by_affirmative_fact(self):
+        script = draft()
+        script["scenes"][0]["voiceover"] = "不支持字幕"
+        self.assertEqual(self.call("check_rules", script=script)["facts"], "failed")
+
+    def test_reference_in_other_scene_does_not_cover_this_scene(self):
+        script = draft()
+        extra = copy.deepcopy(script["scenes"][0])
+        extra.update(id="S02", claims=[])
+        script["scenes"].append(extra)
+        result = self.call("check_rules", script=script)
+        self.assertTrue(any(issue["rule_id"] == "BR05" and issue["location"].startswith("S02")
+                            for issue in result["issues"]))
+
+    def test_too_short_script_fails_even_if_below_upper_limit(self):
+        result = self.call("estimate_duration", script=draft(), target_duration_seconds=30)
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual(result["direction"], "too_short")
+        self.assertEqual(result["minimum_duration_seconds"], 20)
+        self.assertEqual(result["under_by_seconds"], 18.5)
 
     def test_reference_integrity(self):
         for mutation in ("missing", "wrong_id", "wrong_fact", "expanded", "absent_text"):
