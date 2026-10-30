@@ -15,7 +15,7 @@
 
 - 候选人补充实际投入时间；问题发现与修改方案贡献已记录在04-ai-usage.md，另有独立工作时再按实际追加，并保留AI辅助分工说明。
 - 正常、超时修正、工具失败已用最新版重跑并核对真实语义判定；missing_info/no_material尚保留历史记录。36句真实评估已完成，语义/最终层35/36符合预期，留出集20/20，开发集仍有一条目标句漏检和同次标题误报，详见03-evaluation.md。
-- 仓库为https://github.com/linlinlin12138/short-video-script-agent，当前账号可读写；仓库私有，仍需确认指定评审账号可读。
+- 仓库为https://github.com/linlinlin12138/short-video-script-agent。提交前我会将其改为Public，并在切换后以未登录状态确认可访问；不再采用私有仓库邀请评审账号的交付方式。
 - 填写题号或题名、仓库 URL 和最终 commit SHA。考题未给出本题数字编号，不能自行编造。
 
 可使用以下提交信息格式，但下列占位符不是已完成的交付信息：
@@ -37,4 +37,4 @@ dist/submission.zip 是仅包含本项目允许文件的交付副本，排除了
 
 离线安装和运行的独立副本复核见 [delivery-check.txt](../examples/delivery-check.txt)。该复核不重新调用付费模型，也不更改保存的真实模型结果。
 
-压缩包仅在明确要求时更新；本次36句真实评估结果仅更新工作目录，未重新生成dist/submission.zip。
+本次已按要求重新生成dist/submission.zip，包含最终文档、36句真实评估输入/输出/Trace、版本清单与源码快照。文件清单及逐文件SHA-256保存在dist/submission-manifest.json。压缩包不包含.env、Git元数据、编辑器配置和运行缓存；以后仅在明确要求时更新。

@@ -16,7 +16,7 @@
 
 代码内容版本为`8a11784b006e66353ec70616724d4afe42d1ecdfae3572c8cc7e5e957ba52522`，与36条Trace的绑定及运行后补录限制见“新Trace对应的代码版本”。最终Git提交包含这些历史运行材料，不将其SHA说成当时的运行SHA。
 
-仓库核对：[GitHub仓库](https://github.com/linlinlin12138/short-video-script-agent)为私有，当前账号有pull/push权限，远程默认分支为main；匿名API返回404。当前仅确认已登录账号可访问，指定评审账号是否可读尚未核实。最终推送后的提交SHA另行交付。
+仓库提交方式：[GitHub仓库](https://github.com/linlinlin12138/short-video-script-agent)将在提交前改为Public，评审可直接通过公开链接查看。此前访问核验时仓库仍为私有，当前账号有pull/push权限，默认分支为main，匿名API返回404；这些是切换前的核验事实，不代表公开访问已确认。改为公开后需再以未登录状态确认可读，最终提交SHA应与远程main一致。
 
 本版根据评审意见（含 Claude 评审）修改：取消非事实叙事白名单，引入时长下限，增加顶层来源、中文问句校验、重试语义与检索改写建议，并重构Agent。旧证据保存在examples/history/v1及实际失败尝试目录中，不用旧的1.5秒结果证明本版达标。
 
@@ -118,7 +118,7 @@ python3 -m examples.checker.run_claim_eval --judge live --env-file .env --api re
 
 **真实失败：开发集“做出爆款视频”漏检。** 该条目标旁白没有被列出产品声明；语义判定反而以“未被事实直接完整表达”为由误拦共用标题“字幕功能介绍”。因此semantic/final均为flagged_elsewhere：整份脚本检查虽失败，目标句仍属于漏检，不能把整体失败算成目标声明检出。其余35条没有出现该标题误报。此次最终层与语义层指标一致，说明有判定模型时词法风险信号降为提示，没有兜住这一目标句。上述标题误报单独记录，不混入14条应放行目标用例的误报率。
 
-核对结果见 [claim-eval-live.verification.json](../examples/checker/claim-eval-live.verification.json)：数据集哈希、36条顺序/输入、live模式、各层统计和原始Trace逐项对应。运行未更新dist/submission.zip。
+核对结果见 [claim-eval-live.verification.json](../examples/checker/claim-eval-live.verification.json)：数据集哈希、36条顺序/输入、live模式、各层统计和原始Trace逐项对应。该次评估运行没有更新压缩包；本次交付已另行重新生成dist/submission.zip。
 
 ### 新Trace对应的代码版本
 

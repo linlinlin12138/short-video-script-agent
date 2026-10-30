@@ -14,7 +14,7 @@
 
 三条成稿来自独立执行，最终检查均与真实模型返回对应。超时场景共采样4次，完整记录全部保留，不将选中的修正路径当作稳定成功率。缺信息、无素材路径保留语义层加入前的历史记录。语义审核仍漏检“做出爆款视频”，同次误拦标题；35/36是小样本单次结果，不代表通用准确率。
 
-仓库：[linlinlin12138/short-video-script-agent](https://github.com/linlinlin12138/short-video-script-agent)。本次检查确认当前账号可读写，仓库为**私有**，匿名访问返回404；尚未核对指定评审账号权限。提交版本以GitHub提交链接及`git rev-parse HEAD`输出为准，不能把评估时补录清单里的旧HEAD当作最终提交。
+仓库：[linlinlin12138/short-video-script-agent](https://github.com/linlinlin12138/short-video-script-agent)。提交前我会将仓库改为 **Public（公开）**，改为公开后应确认未登录也能查看代码与运行记录。此前核验时仓库仍为私有，当前账号可读写；公开访问尚待切换后确认。提交版本以GitHub提交链接及`git rev-parse HEAD`输出为准，不能把评估时补录清单里的旧HEAD当作最终提交。
 
 ## 运行
 
@@ -80,4 +80,4 @@ python3 -m examples.checker.run_claim_eval --judge live --env-file .env --api re
 python3 scripts/package_submission.py
 ```
 
-生成 dist/submission.zip 和哈希清单，排除.env、Git元数据、缓存和runs。历史1.5秒样例在 examples/history/v1/，只说明旧版缺陷，不作为当前验收成果。个人贡献已记录；提交前仍须补充实际用时，并确认指定评审账号可读取私有仓库。压缩包只在明确要求时更新，本次最终文档与版本提交不重新生成压缩包。
+生成 dist/submission.zip 和哈希清单，排除.env、Git元数据、缓存和runs。历史1.5秒样例在 examples/history/v1/，只说明旧版缺陷，不作为当前验收成果。个人贡献已记录；提交前仍须补充实际用时，将仓库改为Public并确认未登录可访问。压缩包只在明确要求时更新，本次已按要求重新生成，包含最终结果、36句审核Trace及代码版本快照。
