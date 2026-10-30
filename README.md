@@ -80,4 +80,4 @@ python3 -m examples.checker.run_claim_eval --judge live --env-file .env --api re
 python3 scripts/package_submission.py
 ```
 
-生成 dist/submission.zip 和哈希清单，排除.env、Git元数据、缓存和runs。历史1.5秒样例在 examples/history/v1/，只说明旧版缺陷，不作为当前验收成果。个人贡献已记录；提交前仍须补充实际用时，将仓库改为Public并确认未登录可访问。压缩包只在明确要求时更新，本次已按要求重新生成，包含最终结果、36句审核Trace及代码版本快照。
+生成 dist/submission.zip 和哈希清单，排除.env、Git元数据、缓存和runs。历史1.5秒样例在 examples/history/v1/，只说明旧版缺陷，不作为当前验收成果。个人贡献已记录，投入时间估算约3小时，未连续计时；提交前仍须将仓库改为Public并确认未登录可访问。压缩包只在明确要求时更新，本次已按要求重新生成，包含最终结果、36句审核Trace及代码版本快照。

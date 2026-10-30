@@ -13,7 +13,7 @@
 
 正式提交仍需：
 
-- 候选人补充实际投入时间；问题发现与修改方案贡献已记录在04-ai-usage.md，另有独立工作时再按实际追加，并保留AI辅助分工说明。
+投入时间估算约3小时，未连续计时；个人贡献和AI辅助分工见04-ai-usage.md。
 - 正常、超时修正、工具失败已用最新版重跑并核对真实语义判定；missing_info/no_material尚保留历史记录。36句真实评估已完成，语义/最终层35/36符合预期，留出集20/20，开发集仍有一条目标句漏检和同次标题误报，详见03-evaluation.md。
 - 仓库为https://github.com/linlinlin12138/short-video-script-agent。提交前我会将其改为Public，并在切换后以未登录状态确认可访问；不再采用私有仓库邀请评审账号的交付方式。
 - 填写题号或题名、仓库 URL 和最终 commit SHA。考题未给出本题数字编号，不能自行编造。
@@ -24,7 +24,7 @@
 题目：短视频脚本 Agent（题号按原试卷补充）
 GitHub URL：https://github.com/linlinlin12138/short-video-script-agent
 最终 commit SHA：以本次推送后的 git rev-parse HEAD 和远程 main 一致结果为准
-实际投入时间：待本人补充
+实际投入时间：约3小时（估算，未连续计时）
 ```
 
 ## Git 仓库边界
