@@ -1,43 +1,18 @@
-# 最新版三个独立真实场景
+# 加入语义复核后的全部运行
 
-本轮运行语义复核版本的原始CLI，Agent、工具、提示词和判定器业务代码未改动。生成及判定均使用gpt-5.4-mini-2026-03-17、Responses、medium。input均为普通30秒、简洁实用的字幕主题；工具失败仅额外注入一次本地检索临时错误。
+一共 6 次运行，全部保留。输入都是 `examples/inputs/normal.json`（普通 30 秒请求，风格“简洁、实用”）；工具失败那次额外让检索第一次调用失败。
 
-| 场景与选中目录 | 总时长 | 最终版本 | 最终语义句段数 | 最终checks.semantic |
-| --- | --- | --- | --- | --- |
-| [normal/attempt-01](normal/attempt-01/) | 24.1秒 | 1 | 15 | passed，live |
-| [duration_revision/attempt-03](duration_revision/attempt-03/) | 36.2 → 20.1秒 | 2 | 13 | passed，live |
-| [tool_failure/attempt-01](tool_failure/attempt-01/) | 22.8秒，错误后重试成功 | 1 | 13 | passed，live |
+| 场景 | 运行 | 过程 | 用作正式记录 |
+| --- | --- | --- | --- |
+| 正常 | [attempt-01](normal/attempt-01/) | 24.1 秒，一次通过 | ✓ |
+| 时长 | [attempt-01](duration_revision/attempt-01/) | 18.8 秒（太短）→ 29.9 秒 | |
+| 时长 | [attempt-02](duration_revision/attempt-02/) | 25.6 秒，一次通过 | |
+| 时长 | [attempt-03](duration_revision/attempt-03/) | 36.2 秒（太长）→ 20.1 秒 | ✓ 超时修正 |
+| 时长 | [attempt-04](duration_revision/attempt-04/) | 28.2 秒，一次通过 | |
+| 工具失败 | [attempt-01](tool_failure/attempt-01/) | 检索出错 → 重试 → 22.8 秒 | ✓ |
 
-三条是独立执行、不同的最终判定响应ID，不共享一条Trace；三条均无GUARD_REJECTED。已复制到examples/live同名正式入口，原始执行路径仍保留在这里。
+时长场景跑了 4 次，只有第 3 次出现超时，所以用它作为超时修正的记录。选中的三次已复制到 `examples/live/` 下的同名目录，对应关系见 [selection.json](selection.json)。
 
-## 真实语义通过的证据
+每次运行都保存了 `api-audit.json`，记录语义判定的实际请求和返回。`python3 -m examples.live.verify_semantic_runs` 会检查：最终版脚本拆出的句子和发给判定模型的一致、每句都有判定、产品声明引用了 P01-F1、用保存的判定结果重新跑一遍程序校验仍然通过，以及版本、哈希和时长与输出一致。结果见 [verification.json](verification.json)。
 
-每次目录保存：
-
-- input.json、output.json、trace.jsonl：CLI实际输入、结果、工具反馈及下一动作。
-- api-audit.json：实际HTTP调用的模型、响应ID、哈希、语义请求中的全部句段和真实结构化判定；不保存认证头、密钥或内部推理，不替换API返回。
-- runtime-manifest.json：执行时src、data、schemas文件哈希，用于确认是最新语义版本。
-
-离线审计将最终check_rules草稿与对应真实judge_input精确匹配；确认输出semantic=passed、Trace中judge_mode=live、句段覆盖完整、产品声明被标为supported且引用P01-F1；使用保存的原始判定重放程序校验，再核对版本、哈希、逐镜时长及输出。重放标记为replay，不是新的live调用。
-
-```sh
-python3 -m examples.live.verify_semantic_runs
-```
-
-结果见[verification.json](verification.json)，选择映射见[selection.json](selection.json)。这证明该批实际记录的对应关系和通过状态，不证明判定模型不会误判。
-
-## 全部尝试与采样边界
-
-共6次新执行，全部保留：正常1次、工具失败1次、时长4次。时长attempt-01为18.8→29.9秒，attempt-02为25.6秒，attempt-03为36.2→20.1秒，attempt-04为28.2秒。只有attempt-03覆盖超时压缩；其他没有被描述为超时修正。此为有限开发采样，不是稳定成功率。
-
-## 重跑
-
-先在本地配置.env，输出目录必须是全新目录，审计脚本拒绝覆盖旧证据：
-
-```sh
-python3 -m scripts.run_live_acceptance --input examples/inputs/normal.json --model live --env-file .env --api responses --reasoning-effort medium --timeout 60 --output-dir runs/new-normal
-python3 -m scripts.run_live_acceptance --input examples/inputs/normal.json --model live --env-file .env --api responses --reasoning-effort medium --timeout 60 --output-dir runs/new-duration
-python3 -m scripts.run_live_acceptance --input examples/inputs/normal.json --model live --env-file .env --api responses --reasoning-effort medium --timeout 60 --fail-tool search_materials --output-dir runs/new-tool-failure
-```
-
-模型非确定性，普通输入不保证每次超时；不得手改工具结果、补写旧Trace或将未触发超时的运行说成超时修正。36句真实语义评估不在本轮任务范围，尚未额外执行。
+重新跑程序校验用的是保存下来的判定结果，不会再调用模型。判定结果是“通过”也不代表判定模型不会出错，36 句评估里它漏了一句，见 [评估报告](../../../docs/03-evaluation.md)。

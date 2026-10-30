@@ -1,17 +1,17 @@
-# 离线Mock记录
+# Mock 运行记录
 
-决策者是固定 Mock，不是真实模型；工具实际执行。每组保存输入、输出及Trace，run_start标记mock，输出risks说明边界。策略、文案和长稿测试输入均预设，不作为ReAct能力证据。
+这里的“模型”是写死的模拟器，文案和修改策略都是预设的，工具是真实执行的。这些记录只用来检查流程，比如缺信息、工具出错、达到上限时程序会不会正确结束，不能说明模型的决策能力。
 
-| 目录 | 实际终态 | 说明 |
+| 目录 | 结果 | 说明 |
 | --- | --- | --- |
-| normal | completed，23.8秒 | 三镜叙事+产品事实，满足20–30秒 |
-| missing_info | needs_input | 中文问句请求目标时长 |
-| no_material | insufficient_material | 改写查询后仍无素材 |
-| tool_failure | completed，23.8秒 | 一次临时错误后恢复 |
-| duration_revision | completed，23.8秒 | 人工构造长文本后按固定策略回到正常草稿 |
-| step_limit | step_limit_reached | 工具预算耗尽 |
+| normal | completed，23.8 秒 | 3 个分镜 |
+| missing_info | needs_input | 用中文问目标时长 |
+| no_material | insufficient_material | 换查询后仍无素材 |
+| tool_failure | completed，23.8 秒 | 第一次检索出错后重试成功 |
+| duration_revision | completed，23.8 秒 | 先给一份故意写长的稿子，超时后换回正常稿 |
+| step_limit | step_limit_reached | 工具次数用完 |
 
-仓库根目录复现：
+在仓库根目录复现：
 
 ```sh
 python3 -m src.cli --input examples/mock/normal/input.json --model mock --output-dir runs/mock-normal
@@ -22,4 +22,4 @@ python3 -m src.cli --input examples/mock/duration_revision/input.json --model mo
 python3 -m src.cli --input examples/mock/step_limit/input.json --model mock --scenario limit --max-tools 3 --output-dir runs/mock-limit
 ```
 
-未完成的退出码1是预期行为。旧版1.5秒样例见examples/history/v1/mock，不属于当前时长验收。
+未完成的任务返回退出码 1，这是正常的。

@@ -1,24 +1,45 @@
-# 真实模型验收入口
+# 真实运行记录
 
-normal、duration_revision、tool_failure已用最新语义复核版本独立重跑；旧的对应记录移至examples/history/pre-semantic-rerun。missing_info和no_material仍是此前历史记录，不宣称它们已接受本轮新版语义判定。
+生成模型和语义判定模型都是 gpt-5.4-mini-2026-03-17（Responses API，推理强度 medium）。
 
-| 目录 | 最新实际结果 | 最终checks.semantic | 工具调用数 |
+| 目录 | 结果 | 语义复核 | 工具调用 |
 | --- | --- | --- | --- |
-| normal | completed，24.1秒、4镜 | passed，真实判定 | 3 |
-| duration_revision | 36.2秒 → 模型压缩第二版为20.1秒、4镜 | passed，真实判定 | 5 |
-| tool_failure | 临时检索错误 → 重试 → completed，22.8秒、4镜 | passed，真实判定 | 4 |
-| missing_info | 历史：询问目标时长 | 未重跑，不补写passed | 1 |
-| no_material | 历史：两次查询无素材后请求补充 | 未重跑，不补写passed | 2 |
+| [normal](normal/) | completed，24.1 秒，4 个分镜 | 通过 | 3 |
+| [duration_revision](duration_revision/) | 36.2 秒超时 → 第 2 版 20.1 秒，completed | 通过 | 5 |
+| [tool_failure](tool_failure/) | 检索临时出错 → 重试 → completed，22.8 秒 | 通过 | 4 |
+| [missing_info](missing_info/) | needs_input，询问目标时长 | 未执行到检查 | 1 |
+| [no_material](no_material/) | 换查询后仍无素材，请求补充资料 | 未执行到检查 | 2 |
 
-三条新记录的生成模型和判定模型均为gpt-5.4-mini-2026-03-17，Responses、medium。它们是独立执行，不复用同一次正常/超时记录；全程无GUARD_REJECTED。超时用例输入仍为普通30秒、简洁实用，无指定首稿分镜或修正动作。首稿和最终稿的真实语义判定均通过，模型根据时长反馈自行压缩。
+前三条是加入语义复核后分别独立运行的，输入都是普通的 30 秒请求，没有提示怎么写或怎么改。原始运行目录和所有尝试在 [semantic-rerun](semantic-rerun/)，超时场景跑了 4 次，只有 1 次出现超时。
 
-每组包含input.json、output.json、trace.jsonl、api-audit.json、runtime-manifest.json。审计核对实际HTTP语义返回、最终句段覆盖、声明与来源、版本/哈希、最终估时及输出，见[详细重跑说明](semantic-rerun/README.md)。所有新尝试都保留在semantic-rerun，时长4次尝试中只有attempt-03出现超时，不将其余尝试冒充超时修正。
+后两条是加入语义复核之前的记录，之后没有重跑。
 
-离线复核，不调用模型：
+每个目录包含：
+
+- `input.json`、`output.json`、`trace.jsonl`：输入、结果，以及每一步的动作、参数、返回和下一步。
+- `api-audit.json`（前三条）：语义判定的实际请求和返回，不含密钥和模型内部推理。
+- `runtime-manifest.json`（前三条）：运行时源码和数据文件的哈希。
+
+## 复核
+
+不联网、不调用模型：
 
 ```sh
-python3 -m examples.live.verify_semantic_runs
-python3 -m examples.live.verify_results
+python3 -m examples.live.verify_semantic_runs   # 最终语义复核是否和 API 实际返回一致
+python3 -m examples.live.verify_results         # 五个场景的时长、引用、版本和哈希
 ```
 
-第一条严格审计三个新场景及全部新尝试，第二条核对正式入口与对应证据副本，并保留两个历史场景的有限验证。真实语义passed不等于模型不会误判；36句真实判定评估尚未额外执行，不能把端到端三例当作留出集准确率。
+## 重新运行
+
+先在本地配置 `.env`，输出目录要用新目录：
+
+```sh
+python3 -m scripts.run_live_acceptance --input examples/inputs/normal.json --model live --env-file .env \
+  --api responses --reasoning-effort medium --timeout 60 --output-dir runs/new-normal
+python3 -m scripts.run_live_acceptance --input examples/inputs/normal.json --model live --env-file .env \
+  --api responses --reasoning-effort medium --timeout 60 --fail-tool search_materials --output-dir runs/new-tool-failure
+python3 -m src.cli --input examples/live/missing_info/input.json --model live --env-file .env --output-dir runs/new-missing
+python3 -m src.cli --input examples/live/no_material/input.json --model live --env-file .env --output-dir runs/new-no-material
+```
+
+模型输出不确定，重新运行的结果可能和这里不同。未完成的任务返回退出码 1，这是正常的。
